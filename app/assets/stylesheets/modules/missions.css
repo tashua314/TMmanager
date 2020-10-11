@@ -1,0 +1,15 @@
+.mission .mission-content {
+  color: #904669;
+  font-size: 25px;
+}
+
+.mission .penalty {
+  color: #535353;
+  font-size: 20px;
+}
+
+#RealtimeCountdownArea {
+  color: red;
+  font-weight: 600;
+}
+/*# sourceMappingURL=missions.css.map */

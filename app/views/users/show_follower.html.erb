@@ -1,0 +1,10 @@
+<% @user.followers.each do |user| %>
+  <table>
+  <tr>
+    <td>  <%= user.username %> </td>
+    <td><%= link_to '詳細ページへ', user_path(user), class:"link_tag  fas fa-house-user" %></td>
+  </tr>
+  
+  </table>
+  <% end %>
+  

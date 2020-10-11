@@ -1,0 +1,14 @@
+<div class="notification-main">
+        <div class="notification">
+                <% notifications = @notifications.where.not(visiter_id: current_user.id, checked: true ) %>
+                        <% if notifications.exists? %>
+                                <%= render notifications %>
+                                <%= paginate notifications %>
+                        <% else %>
+                                <p>未確認の通知はありません</p>
+                        <% end %>
+        </div>
+</div>
+
+
+        

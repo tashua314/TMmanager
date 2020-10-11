@@ -1,0 +1,202 @@
+        <div class="mission-detail">
+            <h3>Mission詳細</h3>
+              <p>執行者 <%= @mission.user.username %><% if current_user.id != @user.id %>
+                      <%= link_to "ユーザー詳細", user_path(@user.id), class: "fas fa-info-circle link_tag" %>
+                    <% end %>
+                <p>内容 <%= @mission.content %></p>
+                <p>開始日 <%= @mission.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+                <div class = "penalty">
+                  <% if @mission.deadline >= Time.now %>
+                    罰ゲーム <%= @mission.penalty %>
+                    <% else %>
+                    <h4 id="penalty-content">罰ゲーム <%= @mission.penalty %> </h4>
+                  <% end %>
+                </div>
+              <% if @mission.completed == 0 %>
+                  <p>期限 <%= @mission.deadline %>
+                    <br>
+                      <input type="hidden" id="userYear" value = "<%= @mission.deadline.year %>"  >
+                      <input type="hidden" id="userMonth"value = "<%= @mission.deadline.month %>" >
+                      <input type="hidden" id="userDate" value = "<%= @mission.deadline.day %>" >
+                      <input type="hidden" id="userHour" value = "<%= @mission.deadline.hour %>" >
+                      <input type="hidden" id="userMin"  value = "<%= @mission.deadline.min %>" >
+                      <input type="hidden" id="userSec"  value = "<%= @mission.deadline.sec %>" >
+                  </p>
+                  <p id="RealtimeCountdownArea" ></p>
+                  <% if @mission.deadline >= Time.now %>
+                    <%= link_to "Mission内容を変更する", edit_mission_path, class: "link_tag" %>
+                  <% end %>
+                <% else %>
+                    <p class="mission-clear">
+                      Missionクリア！
+                    </p>
+              <% end %>
+
+              <div class="like">
+                <div class="like-delete">
+                  <h3>いいね<%= @mission.likes.count %></h3>
+                  <% if current_user.already_liked?(@mission) %>
+                      <%= button_to mission_like_path(@mission), method: :delete, class:"unlike-btn", remote: true do %>
+                        <i class="fas fa-heart unlike-btn"></i>
+                      <% end %>
+                  <% end %>
+                </div>
+                <div class="like-create">
+                  <% unless current_user.already_liked?(@mission) %>
+                    <%= button_to mission_likes_path(@mission),class:"like-btn",  remote: true do %>
+                        <i class="far fa-heart like-btn"></i>
+                    <% end %>
+                  <% end %>
+                </div>
+
+                  <h3>いいねしたユーザー</h3>
+                  <% @mission.liked_users.each do |user| %>
+                    <li><%= user.username %></li>
+                  <% end %>
+              </div>
+              
+                <div class="notice">
+                  <p class="notice  text-center"><%= params[:notice] %></p>
+                  <p class="alert text-center"><%= params[:alert] %></p>
+                </div>
+        </div>
+            <div class="comment-wrapper">
+                <h3>コメント数: <%= @mission.comments.count %></h3>
+                <p>コメント一覧</p>
+                <br>
+                <% @comments.each do |c| %>
+                  <p><%= c.user.username unless c.user.blank? %>
+                  <%= c.comment %>
+                    <%= button_to mission_comment_path(c.mission.id, c.id), method: :delete,data: { confirm: 'are you sure?' } ,class:"trash-btn fa fa-trash" do %></p>
+                    <% end %>
+                  <% end %>
+
+                <% if user_signed_in? %>
+                  <%= form_with(model: [@mission, @comment], local: true) do |f| %>
+                    <%= f.text_area :comment%>
+                    <br>
+                    <%= button_tag type: "submit", class: "btn comment-create far fa-comment" do %> 
+                      コメントする
+                    <% end %>
+                  <% end %>
+                <% end %>     
+            </div>
+
+<script>
+  // document.querySelector('.like-create').onclick = function() {
+  //         alert('いいねしました');
+  // };
+  // document.querySelector('.like-delete').onclick = function() {
+  //     alert('いいねを削除しました');
+  // };
+
+
+  class HeaderMenu {
+      constructor() {
+          this.DOM = {};
+          this.DOM.btn = document.querySelector('.header-menu__btn');
+          this.DOM.cover = document.querySelector('.header-menu__cover');
+          this.DOM.container = document.querySelector('#global-container');
+          this.eventType = this._getEventType();
+          this._addEvent();
+      }
+
+      _getEventType() {
+          return window.ontouchstart ? 'touchstart' : 'click';
+      }
+
+      _toggle() {
+          this.DOM.container.classList.toggle('menu-open');
+      }
+
+      _addEvent() {
+          this.DOM.btn.addEventListener(this.eventType, this._toggle.bind(this));
+          this.DOM.cover.addEventListener(this.eventType, this._toggle.bind(this));
+      }
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+      const main = new Headermenu();
+});
+
+  new HeaderMenu();
+
+  function set2fig(num) {
+     // 数値が1桁だったら2桁の文字列にして返す
+     var ret;
+     if( num < 10 ) { ret = "0" + num; }
+     else { ret = num; }
+     return ret;
+  }
+  function isNumOrZero(num) {
+     // 数値でなかったら0にして返す
+     if( isNaN(num) ) { return 0; }
+     return num;
+}
+  function showCountdown() {
+     // 現在日時を数値(1970-01-01 00:00:00からのミリ秒)に変換
+     var nowDate = new Date();
+     var dnumNow = nowDate.getTime();
+   
+     // 指定日時を数値(1970-01-01 00:00:00からのミリ秒)に変換
+     var inputYear  = document.getElementById("userYear").value;
+     var inputMonth = document.getElementById("userMonth").value - 1;
+     var inputDate  = document.getElementById("userDate").value;
+     var inputHour  = document.getElementById("userHour").value;
+     var inputMin   = document.getElementById("userMin").value;
+     var inputSec   = document.getElementById("userSec").value;
+     var targetDate = new Date( isNumOrZero(inputYear), isNumOrZero(inputMonth), isNumOrZero(inputDate), isNumOrZero(inputHour), isNumOrZero(inputMin), isNumOrZero(inputSec) );
+     var dnumTarget = targetDate.getTime();
+   
+     // 表示を準備
+     var dlYear  = targetDate.getFullYear();
+     var dlMonth = targetDate.getMonth() + 1;
+     var dlDate  = targetDate.getDate();
+     var dlHour  = targetDate.getHours();
+     var dlMin   = targetDate.getMinutes();
+     var dlSec   = targetDate.getSeconds();
+     var msg1 = "期限の" + dlYear + "/" + dlMonth + "/" + dlDate + " " + set2fig(dlHour) + ":" + set2fig(dlMin) + ":" + set2fig(dlSec);
+   
+     // 引き算して日数(ミリ秒)の差を計算
+     var diff2Dates = dnumTarget - dnumNow;
+     if( dnumTarget < dnumNow ) {
+        // 期限が過ぎた場合は -1 を掛けて正の値に変換
+        diff2Dates *= -1;
+     }
+   
+     // 差のミリ秒を、日数・時間・分・秒に分割
+     var dDays  = diff2Dates / ( 1000 * 60 * 60 * 24 );   // 日数
+     diff2Dates = diff2Dates % ( 1000 * 60 * 60 * 24 );
+     var dHour  = diff2Dates / ( 1000 * 60 * 60 );   // 時間
+     diff2Dates = diff2Dates % ( 1000 * 60 * 60 );
+     var dMin   = diff2Dates / ( 1000 * 60 );   // 分
+     diff2Dates = diff2Dates % ( 1000 * 60 );
+     var dSec   = diff2Dates / 1000;   // 秒
+     var msg2 = Math.floor(dDays) + "日"
+              + Math.floor(dHour) + "時間"
+              + Math.floor(dMin) + "分"
+              + Math.floor(dSec) + "秒";
+   
+     // 表示文字列の作成
+     var msg;
+     if( dnumTarget > dnumNow ) {
+        // まだ期限が来ていない場合
+        msg =  "Mission終了まで、あと" + msg2 ;
+     }
+     else {
+        // 期限が過ぎた場合
+        msg = "Mission失敗";
+
+        // msg1 + "は、既に" + msg2 + "前に過ぎました。"
+     }
+   
+     // 作成した文字列を表示
+     document.getElementById("RealtimeCountdownArea").innerHTML = msg;
+     document.getElementById("deadline.id").value =  targetDate;
+
+}
+  // 1秒ごとに実行
+  setInterval('showCountdown()',1000);
+
+</script>
+
+

@@ -1,0 +1,175 @@
+.font-sm {
+  font-size: 14px;
+}
+
+.font-md {
+  font-size: 17px;
+}
+
+.font-lr {
+  font-size: 17px;
+}
+
+.font-lg {
+  font-size: 25px;
+}
+
+.mb-sm {
+  margin-bottom: 16px !important;
+}
+
+.mb-lg {
+  margin-bottom: 80px !important;
+}
+
+.pb-sm {
+  padding-bottom: 16px !important;
+}
+
+.pb-lg {
+  padding-bottom: 80px !important;
+}
+
+.visited_user {
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.current_user {
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.says p {
+  display: inline-block;
+  position: relative;
+  margin: 0 0 0 10px;
+  padding: 10px;
+  max-width: 250px;
+  border-radius: 12px;
+  background-color: #edf1ee;
+  color: black;
+}
+
+.says p::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #edf1ee;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+
+.message-form {
+  background-color: white;
+  text-align: center;
+}
+
+.text-form {
+  margin-top: 100px;
+  border-radius: 10px;
+  border-color: #666666;
+  width: 300px;
+  height: 40px;
+}
+
+.text-form:focus {
+  -webkit-box-shadow: 0 0 5px 0 #1da1f3;
+          box-shadow: 0 0 5px 0 #1da1f3;
+  border: 2px solid #FFF !important;
+  outline: 0;
+}
+
+.guest_user {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.fa-check-circle {
+  color: #1da1f3;
+}
+
+.line-bc {
+  padding: 50px 5px 5px 5px;
+  text-align: right;
+  font-size: 14px;
+  background: #7da4cd;
+  min-height: 10vh;
+}
+
+.balloon6 {
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.balloon6 .chatting {
+  width: 100%;
+  text-align: left;
+}
+
+.user-in {
+  width: 100%;
+  text-align: center;
+  border: 1px solid darkgray;
+  background-color: #00003c;
+  background-size: cover;
+  padding: 10px 0;
+  position: fixed;
+  z-index: 2;
+}
+
+.user-in a {
+  text-decoration: none;
+  color: white;
+}
+
+.user-detail {
+  width: 50%;
+  padding: 10px 0;
+  border: 1px solid darkgray;
+  background-color: #eaebe6;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.mycomment {
+  margin: 0;
+}
+
+.mycomment p {
+  display: inline-block;
+  position: relative;
+  margin: 0 10px 0 0;
+  padding: 8px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #30e852;
+  font-size: 15px;
+}
+
+.mycomment p::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: -19px;
+  border: 8px solid transparent;
+  border-left: 18px solid #30e852;
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+}
+
+.user-mission {
+  text-align: center;
+}
+
+.user-index h2 {
+  text-align: center;
+}
+/*# sourceMappingURL=users.css.map */

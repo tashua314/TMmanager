@@ -1,0 +1,56 @@
+<% visiter = notification.visiter %>
+<% visited = notification.visited %>
+    <% if notification.checked == false %>
+        <div>
+                    <%= link_to user_path(visiter), class:"link_tag" do %>
+                        <%= visiter.username %>さんが
+                    <% end %>
+
+            <% case notification.action %>
+                        <% when 'dm' then %>
+                            あなたにDMを送りました
+                            <%= button_to notification_path(notification.id),method: :put, class: "notification-btn" do %>
+                                <i class="far fa-check-circle"></i>
+                            <% end %>
+                            <div class="small-text-muted text-right">
+                            <%= time_ago_in_words(notification.created_at).upcase %>前
+                            </div>
+
+                        <% when 'like' then %>
+                            あなたのMissionにいいねしました
+                            <%= button_to notification_path(notification.id),method: :put, class: "notification-btn" do %>
+                                <i class="far fa-check-circle"></i>
+                            <% end %>
+                            <div class="small-text-muted text-right">
+                            <%= time_ago_in_words(notification.created_at).upcase %>前
+                            </div>
+
+                        <% when 'comment' then %>
+                        <% if notification.mission.user_id == visited.id %>
+                            あなたのMissionにコメントしました
+                            <%= button_to notification_path(notification.id),method: :put, class: "notification-btn" do %>
+                                <i class="far fa-check-circle"></i>
+                            <% end %>
+                            <div class="small-text-muted text-right">
+                            <%= time_ago_in_words(notification.created_at).upcase %>前
+                            </div>
+                        <% end %>
+
+                        <% when 'follow' then %>
+                            あなたをフォローしました
+                            <%= button_to notification_path(notification.id),method: :put, class: "notification-btn" do %>
+                                <i class="far fa-check-circle"></i>
+                            <% end %>
+                            <div class="small-text-muted text-right">
+                            <%= time_ago_in_words(notification.created_at).upcase %>前
+                            </div>
+                        <% end %>
+
+                        
+                    
+        </div>  
+
+    <% end %>                
+                
+                
+                    

@@ -1,0 +1,112 @@
+        <p id="date"></p> 
+        <p id="time"></p>
+        <br>
+        <% if user_signed_in? %>
+                <h2>ようこそ <%= link_to current_user.username + "さん", user_path(current_user.id), class:"user_name" %></h2>
+                <%= link_to "ログアウト", destroy_user_session_path, :method => :delete , class: "btn login fas fa-sign-out-alt" %>
+          <% else %>
+        <% end %>
+          <div class="hero">
+              <div class="swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="hero__title">Time is Money</div>
+                    <%= image_tag 'image-1.jpg', class:"top__img" %>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="hero__title">Mission</div>
+                    <%= image_tag 'image-2.jpg', class:"top__img" %>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="hero__title">Colleague</div>
+                    <%= image_tag 'image-3.jpg', class:"top__img" %>
+                  </div>
+                </div>
+                <div class="hero__footer">
+                  <%= image_tag 'arrow.svg', class:"arrow" %>
+                  <span class="hero__scrolltext">scroll</span>
+                </div>
+              </div>
+          </div>
+          <section class="top">
+            <div class="top__inner">
+              <div class="top__img cover-slide hover-darken inview">
+                <%= image_tag 'image01.jpg', class:"top__img" %>
+              </div>
+              <div class="top__texts appear left">
+                <div class="top__texts-inner">
+                  <div class="top__title sub-title inview">
+                    <span class="purple">Execute</span> <span>the mission</span>
+                  </div>
+                    <div class="top__sub sub-title">任務を遂行せよ</div>
+                      <div class="top__description">
+                        <p>巷のTodoリストとは<br>一味違う時間管理アプリです。</p>
+                        <p>貴方の時間をコントロールいたします。</p>
+                      </div>
+                      <div class="answer">
+                        <%= link_to missions_path, class:"btn cubic" do %>
+                          <span class="hovering">Let's start!</span>
+                          <span class="default">さっそく始める</span>
+                        <% end %>
+                      </div>
+                </div>
+              </div>
+            </div>
+          </section>
+    
+        
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const cb = function (el, isIntersecting) {
+        if(isIntersecting) {
+            el.classList.add('inview');
+        }
+    } 
+    const so = new ScrollObserver('.cover-slide', cb);
+});
+
+class ScrollObserver {
+  constructor(els, cb, options) {
+    this.els = document.querySelectorAll(els);
+    const defaultOptions = {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0,
+            once: true
+        };
+        this.cb = cb;
+        this.options = Object.assign(defaultOptions, options);
+        this.once = this.options.once;
+        this._init();
+  }
+  _init() {
+        const callback = function (entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    console.log(this);
+                    this.cb(entry.target, true);
+                    if(this.once) {
+                        observer.unobserve(entry.target);
+                    }
+                } else {
+                    this.cb(entry.target, false);
+                }
+            });
+        };
+        this.io = new IntersectionObserver(callback.bind(this), this.options);
+        // @see https://github.com/w3c/IntersectionObserver/tree/master/polyfill
+        this.io.POLL_INTERVAL = 100;
+        this.els.forEach(el => this.io.observe(el));
+  }
+
+  destory() {
+        this.io.disconnect();
+    }
+}
+
+</script>
+    

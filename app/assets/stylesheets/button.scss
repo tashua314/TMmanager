@@ -1,0 +1,318 @@
+@import "modules/color";
+@import "modules/dimensions";
+
+.btn {
+  display: inline-block;
+  background-color: $cWhite;
+  border: 1px solid $cBlack;
+  color: $cBlack;
+  font-weight: 600;
+  padding: 5px 30px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none !important;
+  z-index: 2;
+
+  &.slide-bg {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    
+    &::before {
+      content: "";
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        background-color: $cBlack;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+        z-index: -1;
+    }
+
+    &:hover {
+        color: $cWhite;
+
+        &::before {
+            transform: none;
+        }
+    }
+}
+
+  &.login {
+    width: 100px;
+
+    &:hover {
+      background-color: $cRed;
+      transform: translate(-2.5px, -2.5px);
+      box-shadow: 5px 5px 0 0 $cBlack;
+      color: $cWhite;
+    }
+  }
+
+  &.cover-3d {
+    position: relative;
+    z-index: 1;
+    transform-style: preserve-3d;
+    perspective: 300px;
+
+    & span {
+      display: inline-block;
+      transform: translateZ(20px);
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background-color: $cBlack;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: rotateX(90deg);
+      transition: all 0.3s;
+      transform-origin: top center;
+      opacity: 0;
+    }
+
+    &:hover {
+      color: $cWhite;
+
+      &::before {
+        transform: none;
+        opacity: 1;
+      }
+    }
+  }
+
+
+  &.sign-up {
+    width: 100px;
+    background-color: $cRed;
+    color: $cWhite;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+
+    &:hover {
+      background-color: $cWhite;
+      color: $cBlack;
+      box-shadow: none;
+    }
+  }
+}
+
+.link_tag {
+    text-decoration: none !important;
+    color: $cSubTitle;
+    font-size: 15px;
+    margin-right: 10px;
+    &:hover {
+      color: $light_blue;
+      transition: 1s ease;
+    }
+    
+    &__follow {
+      margin-right: 10px;
+      text-decoration: none !important;
+      color: $cSubTitle;
+    }     
+}
+
+
+// a {
+//   display: block;
+//   color: $cSubTitle;
+//   font-size: 14px;
+//   text-decoration: none ;
+
+//   &:hover {
+//     text-decoration: underline;
+//   }
+// }
+
+.btn-default {
+  font-size: 1.5em;
+  position: absolute;
+  padding-left: 1rem;
+  padding-top: 0rem;
+  color: #efa04c;
+}
+
+.like-btn {
+  width: 25px;
+  height: 30px;
+  font-size: 1.3em;
+  background-color: $cWhite;
+  color: #808080; 
+  cursor: pointer;
+  border: 0px none;
+}
+
+.unlike-btn {
+  color: #e54747;
+  background-color: $cWhite;
+  font-size: 1.3em;
+  width: auto;
+  // padding:0;
+  // margin:0;
+  background:none;
+  border:0;
+  // line-height:0;
+  overflow:visible;
+  cursor:pointer;
+}
+
+
+
+.notification-btn {
+  font-size: 1.3em;
+  width: auto;
+  padding:0;
+  margin:0;
+  background:none;
+  border:0;
+  line-height:0;
+  overflow:visible;
+  cursor:pointer;
+}
+
+.follow-btn {
+  text-decoration: none;
+  background-image: linear-gradient(#fff,#f5f8fa);
+  border: 1px solid #e6ecf0;
+  border-radius: 4px;
+  color: #393e42;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 14px;
+  position: relative;
+
+  &:hover {
+    background-color: #e6ecf0;
+    background-image: linear-gradient(#fff,#e6ecf0);
+    border-color: #e6ecf0;
+  }
+}
+
+.fa-user-plus {
+  color: $light_blue;
+}
+
+.unfollow-btn {
+  text-decoration: none;
+  background-image: linear-gradient(#fff,#f5f8fa);
+  border: 1px solid #e6ecf0;
+  border-radius: 4px;
+  color: $light_blue;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 14px;
+  position: relative;
+}
+
+.search-btn {
+  font-size: 1.3em;
+  width: auto;
+  padding:0;
+  margin:0;
+  background:none;
+  border:0;
+  line-height:0;
+  overflow:visible;
+  cursor:pointer;
+}
+
+.trash-btn {
+  font-size: 1.3em;
+  width: auto;
+  padding:0;
+  margin-top: 10px;
+  background:none;
+  border:0;
+  line-height:0;
+  overflow:visible;
+  cursor:pointer;
+}
+
+
+.answer {
+  margin-top: 20px;
+  .btn {
+    position: relative;
+    display: inline-block;
+    transform-style: preserve-3d;
+    perspective: 300px;
+    width: 100px;
+    height: 40px;
+    margin: 0 auto;
+    cursor: pointer;
+
+    &.cubic {
+      background-color: transparent;
+      border: none;
+      & span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid $cBlack;
+        line-height: 48px;
+        text-align: center;
+        transition: all 0.3s;
+      }
+
+      & .hovering {
+        background-color: transparent;
+        color: transparent;
+        transform: rotateX(90deg);
+        transform-origin: center center -25px;
+        background-color: transparent;
+      }
+
+      & .default {
+        background-color: $cWhite;
+        color: $cBlack;
+        transform: rotateX(0);
+        transform-origin: center center -25px;
+      }
+
+      &:hover {
+        & .hovering {
+          background-color: $cBlack;
+          color: $cWhite;
+          transform: rotateX(0);
+        }
+        & .default {
+          transform: rotateX(-90deg);
+          background-color: transparent;
+          color: transparent;
+        }
+      }
+    }
+  }
+}
+
+
+.send-btn {
+  font-size: 1.3em;
+  width: auto;
+  padding:0;
+  margin:0;
+  background:transparent;
+  border:none;
+  line-height:0;
+  overflow:visible;
+  cursor:pointer;
+  outline: none;
+  color: $cBlue;
+}

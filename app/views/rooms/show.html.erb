@@ -1,0 +1,51 @@
+<%= stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="user-in">
+    <% @entries.each do |e| %>
+        <% if e.user_id != current_user.id %>
+            <a href="/users/<%= e.user.id %>"><%= e.user.username %></a>
+        <% end %>
+    <% end %>
+</div>
+
+
+    <% @messages.each do |m| %> 
+        <% if @messages.count != 0 %>
+            <div class="line-bc">
+                <% if m.user_id != current_user.id %>
+                    <div class="balloon6">
+                        <div class="chatting">
+                            <div class="says">
+                            <%= m.user.username %><br>
+                                <p>
+                                    <%= m.body %>
+                                </p>
+                                <%= m.created_at.strftime("%m-%d-%H:%M") %>
+                            </div>
+                        </div>
+                    </div>
+                    <% else %>
+                            <div class="mycomment">
+                                <%= m.user.username %><br>
+                                <p>
+                                    <%= m.body %>    
+                                </p>
+                                <%= m.created_at.strftime("%m-%d-%H:%M") %>
+                            </div>
+                <% end %>
+            </div>
+            <% else %>
+                <div class="line-bc"></div>
+        <% end %>
+    <% end %>
+
+
+    <%= form_for @message do |f| %>
+        <div class="message-form">
+            <%= f.text_field :body, :placeholder => "メッセージを入力して下さい", :size => 100, value:"" ,class:"text-form" %>
+                <%= f.hidden_field :room_id, :value => @room.id %>         
+                    <%= button_tag type: "submit",  class:"send-btn fas fa-paper-plane" do %>
+                    <% end %>
+        </div>
+    <% end %>
+

@@ -1,0 +1,22 @@
+        <% if user_signed_in?  %>
+        <div class="user-index">
+            <h2><%= link_to current_user.username, user_path(current_user.id), class:"guest_user" %>でログインしています</h2> 
+            <% number = 0 %>
+                <% @users.each do |u|  %>
+                    <% if u.email != 'guest@example.com' %>
+                        <div class="user-detail">
+                                <p>プロフィール No.<%= number %></p>
+                                <p><%= u.username %></p>
+                                <p><%= link_to 'ユーザーページへ', user_path(u.id), class:"link_tag" %></p>
+                        </div>
+                    <% end %>
+                    <% number += 1 %>
+                <% end %>
+        </div>
+
+        <% else %>
+            <%= link_to "SignUp", new_user_registration_path %>
+            <br>
+            <%= link_to "SignIn", new_user_session_path %>
+        <% end %>
+

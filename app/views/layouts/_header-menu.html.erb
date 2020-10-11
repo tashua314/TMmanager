@@ -1,0 +1,72 @@
+        <div class="logo">
+            <%= image_tag 'logo.svg', class:"logo__img" %>
+            <span class="logo__TM">TM</span>
+            <span class="logo__manager">Manager</span>
+        </div>
+
+    <% if user_signed_in? %>
+          <ul class="header-menu__main">
+            <li class="header-menu__item">
+            <% unless current_page?user_path(current_user) %>
+              <%= link_to "マイページへ", user_path(current_user) ,class: "main-title fas fa-house-user" %></li>
+            <% end %>
+            </li>
+
+          <% unless  current_page?missions_path %>
+            <li class="header-menu__item">
+              <%= link_to "ミッション一覧へ", missions_path, class:"main-title" %>
+            </li>
+          <% end %>
+
+          <% unless current_page?new_mission_path %>
+            <li class="header-menu__item">
+              <%= link_to "ミッション作成", new_mission_path, class:"main-title fas fa-envelope" %>
+            </li>
+          <% end %>
+          
+          <% if current_user %>
+            <li class="header-menu__item">
+                  <% if unchecked_notifications.any? %>
+                      <i class="fa fa-circle notification-circle"></i>
+                      <br>
+                      <%= link_to '通知', notifications_path, class:"main-title far fa-bell" %>
+                    <% else %>
+                      <%= link_to '通知', notifications_path, class:"main-title far fa-bell" %>
+                  <% end %>
+            </li>
+        <% end %>
+
+        <% unless current_page?users_path %>
+            <li class="header-menu__item">
+              <%= link_to 'ユーザー 一覧' ,users_path, class:"main-title fa fa-user-circle" %>
+            </li>
+        <% end %>
+          
+            <li class="header-menu__item logout">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"main-title fas fa-sign-out-alt" %>
+            </li>
+        </ul>
+      <% else %>
+        <ul class="header-menu__main">
+              <% unless current_page?new_user_session_path %>
+                <li class="header-menu__item">
+                    <%= link_to "ログイン", missions_path,class: "main-title login fas fa-sign-in-alt" %>
+              <% end %>
+            </li>
+              <% unless current_page?new_user_registration_path %>
+                <li class="header-menu__item">
+                      <%= link_to "新規登録", new_user_registration_path, class: "main-title sign-up fas fa-user-plus"%>
+                </li>
+              <% end %>
+              
+              <% unless current_page?root_path %>
+                <li class="header-menu__item">
+                      <%= link_to 'ホームへ', root_path, class:"main-title fas fa-home" %>
+                </li>
+              <% end %>
+
+                <li class="header-menu__item">
+                      <%= button_to 'ゲストログイン（閲覧用）',hello_guest_sign_in_path, method: :post, class:" guest_login fas fa-user" %>
+                </li>
+        </ul>
+    <% end %>

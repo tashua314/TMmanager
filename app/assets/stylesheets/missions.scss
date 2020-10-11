@@ -1,0 +1,59 @@
+@import "modules/color";
+
+.mission {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #5d627b;
+  background: white;
+  border-top: solid 5px #5d627b;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  width: 50%;
+    
+  & .mission-content {
+    color:$cWineRed;
+    font-size:25px;
+  }
+  & .penalty {
+    color:$cSubTitle;
+    font-size:20px;
+  }
+  & > li {
+    margin-bottom: 2px;
+  }
+}
+
+#RealtimeCountdownArea {
+  color: $cRed;
+  font-weight: 600;
+}
+
+
+
+.detail {
+  text-align: center;
+  margin-top:120px;
+  margin-bottom: 20px;
+}
+
+.mission-detail {
+  margin-top: 100px;
+}
+
+.new-mission {
+  display:block;
+  text-align:center;
+}
+
+.mission-form {
+  &__li {
+    margin-bottom: 20px;
+  }
+}
+
+.destroy-btn {
+  margin-top: 5px;
+}
+
+.mission-content {
+  
+}

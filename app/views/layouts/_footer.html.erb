@@ -1,0 +1,43 @@
+            <div class="logo">
+              <%= image_tag 'logo.svg', class:"logo__img" %>
+                  <span class="logo__TM">TM</span>
+                  <span class="logo__manager">Manager</span>
+            </div>
+            <% if user_signed_in? %>
+              <nav class="footer__nav">
+                  <ul class="footer__ul">
+
+                    <% unless current_page?user_path(current_user) %>
+                        <li class="footer_li item">
+                          <%= link_to "マイページへ", user_path(current_user) ,class: "link_tag fas fa-house-user" %></li>
+                    <% end %>
+
+                    <% unless current_page?users_path %>
+                        <li class="footer_li item">
+                          <%= link_to "ユーザー一覧", users_path, class:"link_tag fa fa-user-circle" %>
+                        </li>
+                    <% end %>
+
+                    <% unless current_page?missions_path %>
+                        <li class="footer_li item">
+                          <%= link_to "ミッション一覧", missions_path, class:"link_tag" %>
+                        </li>
+                    <% end %>
+
+                    <% unless current_page?new_mission_path %>
+                        <li class="footer_li item">
+                          <%= link_to "ミッション作成", new_mission_path,class: "link_tag fas fa-envelope" %>
+                        </li>
+                    <% end %>
+
+                        <li class="footer_li item">
+                          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete,class: "link_tag fas fa-sign-out-alt" %>
+                        </li>
+                  </ul>
+                <div class="footer__copyright item">
+                  &copy; ASAPIN Corporation 2020
+                <div>
+                
+              </nav>
+            <% end %>
+        

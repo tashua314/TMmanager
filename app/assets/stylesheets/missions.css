@@ -1,0 +1,59 @@
+.mission {
+  margin: 10px 0;
+}
+
+.mission .mission-content {
+  color: #904669;
+  font-size: 25px;
+}
+
+.mission .penalty {
+  color: #535353;
+  font-size: 20px;
+}
+
+.mission > li {
+  margin-bottom: 2px;
+}
+
+#RealtimeCountdownArea {
+  color: red;
+  font-weight: 600;
+}
+
+.mission-index > ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mission-index > ul > li {
+  margin-left: 20px;
+}
+
+.detail {
+  text-align: center;
+  margin-top: 120px;
+  margin-bottom: 20px;
+}
+
+.mission-detail {
+  margin-top: 100px;
+}
+
+.new-mission {
+  display: block;
+  text-align: center;
+}
+
+.mission-form__li {
+  margin-bottom: 20px;
+}
+
+.destroy-btn {
+  margin-top: 5px;
+}
+/*# sourceMappingURL=missions.css.map */

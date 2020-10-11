@@ -1,0 +1,16 @@
+
+  <div class="generic-form">
+    <h2>新規登録</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+      <%= render "users/shared/error_messages", resource: resource %>
+      <%= render "form", f: f %>
+
+      <div class="answers">
+        <%= button_tag type: "submit", class: "btn slide-bg" do %>
+          <span></span>登録
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+

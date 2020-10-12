@@ -10,7 +10,7 @@
   font-size: 17px;
 }
 
-.font-lg {
+.font-lg, .guest_user {
   font-size: 25px;
 }
 
@@ -86,8 +86,18 @@
 }
 
 .guest_user {
+  font-weight: 600;
+  display: block;
+  color: #535353;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.guest_user:hover {
   text-decoration: none;
   color: #007bff;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
 }
 
 .fa-check-circle {
@@ -167,6 +177,31 @@
 
 .user-mission {
   text-align: center;
+  margin-bottom: 100px;
+}
+
+.user-mission ul {
+  color: #1e366a;
+  border: dotted #1e366a 1px;
+  padding: 0.5em 0.5em 0.5em 2em;
+  width: 50%;
+  margin: 0 auto;
+  border-top: solid 5px #5d627b;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+
+.user-mission ul, .user-mission li {
+  line-height: 1.5;
+  padding: 0.5em 0;
+}
+
+.user-mission li {
+  text-align: left;
+}
+
+.user-mission h3 {
+  margin-top: 20px;
 }
 
 .user-index h2 {

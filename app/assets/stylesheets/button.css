@@ -357,4 +357,16 @@
   outline: none;
   color: #007bff;
 }
+
+.comment-create {
+  font-size: 1.3em;
+  border: none;
+  background: transparent;
+}
+
+.comment-create:hover {
+  color: #1da1f3;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
 /*# sourceMappingURL=button.css.map */

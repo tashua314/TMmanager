@@ -2,16 +2,16 @@
 
 .mission {
   padding: 0.5em 1em;
-  margin: 2em 0;
+  margin: 2em auto;
   color: #5d627b;
   background: white;
   border-top: solid 5px #5d627b;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
   width: 50%;
-    
-  & .mission-content {
-    color:$cWineRed;
-    font-size:25px;
+  text-align: center;
+
+  .far {
+    cursor: default;
   }
   & .penalty {
     color:$cSubTitle;
@@ -27,16 +27,14 @@
   font-weight: 600;
 }
 
-
-
-.detail {
-  text-align: center;
-  margin-top:120px;
-  margin-bottom: 20px;
-}
+// .detail {
+//   text-align: center;
+//   margin-top: 120px;
+//   margin-bottom: 20px;
+// }
 
 .mission-detail {
-  margin-top: 100px;
+  padding-top: 10px;
 }
 
 .new-mission {
@@ -54,6 +52,4 @@
   margin-top: 5px;
 }
 
-.mission-content {
-  
-}
+

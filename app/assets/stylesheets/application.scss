@@ -284,9 +284,10 @@ ul {
 
 main {
   flex: 1;
-  margin-top: 100px;
+  padding-top: 100px;
   margin-bottom: 100px;
 }
+
 
 #global-container{
   min-height: 100vh;
@@ -297,7 +298,8 @@ main {
 
 .footer { 
   width: 100%;
-  background-color: $cBgGray;
+  // background-color: $cBgGray;
+  background: aliceblue;
   // margin-top: 100px;
   bottom: 0;
   position: fixed;
@@ -401,18 +403,16 @@ main {
 #container {
   #login-form {
     min-height: 100vh;
-    margin: $wide * 2 auto;
-    padding: $wide * 2;
-    border-radius: $wide;
+    padding:100px 0;
     background-color: $very_light_gray;
     box-shadow: 0 8px 40px -10px rgba(0, 0, 0, 0.8);
     background-image:url("image-1.jpg");
     background-size: cover;
   h1 {
     background-color: transparent;
-    color: $cWhite;
     font-size: $huge;
     font-weight: bold;
+    color: rgba(255, 255, 255, 0.6);
   }
 
   form {
@@ -421,7 +421,7 @@ main {
       label {
         display: block;
         padding: $moderate 0;
-        color: $cWhite;
+        color: rgba(255, 255, 255, 0.6);
       }
       input[type = "text"], input[type="password"] {
         // padding: $wide;
@@ -434,8 +434,14 @@ main {
     }
 
     .actions {
+
+      
+      .cover-3d {
+        height: 3em;
+      }
       .link_tag {
-        color: $cWhite;
+        margin-top: 10px;
+        color: rgba(255, 255, 255, 0.6);
         
         &:hover {
           color: $cAqua;
@@ -657,6 +663,21 @@ main {
 
 
 h4 {
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
 }
 
+.gravatar {
+  display: block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: solid 1px #ccc; 
+  cursor: pointer;
+  background: url(画像のurlを挿入する);
+  background-size: 101%;
+  background-position: top left;
+  border-radius: 100%;
+  margin: 10px auto;
+  -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}

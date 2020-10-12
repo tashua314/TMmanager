@@ -8,9 +8,9 @@
                 <% end %>
             </div>
         
-                <% @missions.each do |t| %>
-                  <% if t.completed == 0 %>
-                      <div class="mission">
+              <% @missions.each do |t| %>
+                  <div class="mission">
+                    <% if t.completed == 0 %>
                           <h2> <%= t.user.username %></h2>
                           <%= t.content %>    
                           <% if Time.now >= t.deadline  %>
@@ -19,25 +19,25 @@
                             <% else %>
                               <h3>期限</h3> <%= t.deadline.strftime("%Y-%m-%d %H:%M")  %>
                           <% end %>   
-                            <br>
+            
                             <i class="far fa-heart"></i><%= t.liked_users.count %>
                             <i class="far fa-comment"></i><%= t.comments.count %> 
                             <ul>
-                              <li>
-                                  <%= link_to "詳細へ", mission_path(t.id), class: "link_tag fas fa-info-circle"%>
-                              </li>
+                                  <li>
+                                      <%= link_to "詳細へ", mission_path(t.id), class: "link_tag fas fa-info-circle"%>
+                                  </li>
                               <% if user_signed_in? && current_user.id == t.user_id %> 
-                              <li>
                                 <% if t.deadline >= Time.now %>
-                                    <%= link_to "編集する", edit_mission_path(t.id), class: "link_tag fa fa-edit" %>
-                              </li>
+                                  <li>
+                                        <%= link_to "編集する", edit_mission_path(t.id), class: "link_tag fa fa-edit" %>
+                                  </li>
                                   <li class="destroy-btn">
                                     <%= button_to  mission_path(t.id), method: :delete, data: { confirm: '本当に諦めてもいいですか？' }, class: "trash-btn fa fa-trash" do %>削除する
                                   </li>
+                                    <% end %>
                                 <% end %>
                               <% end %>
                             </ul> 
-                      </div>
-                  <% end %>
-                <% end %>
+                    <% end %>
+                </div>    
               <% end %>

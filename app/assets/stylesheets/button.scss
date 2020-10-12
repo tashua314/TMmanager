@@ -123,18 +123,6 @@
     }     
 }
 
-
-// a {
-//   display: block;
-//   color: $cSubTitle;
-//   font-size: 14px;
-//   text-decoration: none ;
-
-//   &:hover {
-//     text-decoration: underline;
-//   }
-// }
-
 .btn-default {
   font-size: 1.5em;
   position: absolute;
@@ -316,3 +304,15 @@
   outline: none;
   color: $cBlue;
 }
+
+.comment-create {
+  font-size: 1.3em;
+  border: none;
+  background:transparent;
+  &:hover {
+    color: $light_blue;
+    transition: 0.5s ease-in-out;
+  }
+}
+
+

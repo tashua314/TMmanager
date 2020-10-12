@@ -1,6 +1,8 @@
-        <div class="mission-detail">
+      <div class="mission-detail">
+        <div class="mission">
             <h3>Mission詳細</h3>
-              <p>執行者 <%= @mission.user.username %><% if current_user.id != @user.id %>
+              <p>執行者 <%= @mission.user.username %>
+              <% if current_user.id != @user.id %>
                       <%= link_to "ユーザー詳細", user_path(@user.id), class: "fas fa-info-circle link_tag" %>
                     <% end %>
                 <p>内容 <%= @mission.content %></p>
@@ -24,7 +26,7 @@
                   </p>
                   <p id="RealtimeCountdownArea" ></p>
                   <% if @mission.deadline >= Time.now %>
-                    <%= link_to "Mission内容を変更する", edit_mission_path, class: "link_tag" %>
+                    <%= link_to "Mission内容を変更する", edit_mission_path, class: "link_tag fas fa-edit" %>
                   <% end %>
                 <% else %>
                     <p class="mission-clear">
@@ -34,10 +36,11 @@
 
               <div class="like">
                 <div class="like-delete">
-                  <h3>いいね<%= @mission.likes.count %></h3>
+                  <h3>いいね<%= @mission.likes.count %>
                   <% if current_user.already_liked?(@mission) %>
                       <%= button_to mission_like_path(@mission), method: :delete, class:"unlike-btn", remote: true do %>
                         <i class="fas fa-heart unlike-btn"></i>
+                  </h3>
                       <% end %>
                   <% end %>
                 </div>
@@ -50,8 +53,8 @@
                 </div>
 
                   <h3>いいねしたユーザー</h3>
-                  <% @mission.liked_users.each do |user| %>
-                    <li><%= user.username %></li>
+                  <%@mission.liked_users.each do |user| %>
+                    <%= user.username %>
                   <% end %>
               </div>
               
@@ -62,25 +65,26 @@
         </div>
             <div class="comment-wrapper">
                 <h3>コメント数: <%= @mission.comments.count %></h3>
-                <p>コメント一覧</p>
+                  <% unless @mission.comments.count == 0 %>
+                    <p>コメント一覧</p>
+                  <% end %>
                 <br>
                 <% @comments.each do |c| %>
-                  <p><%= c.user.username unless c.user.blank? %>
+                  <%= c.user.username unless c.user.blank? %>
                   <%= c.comment %>
-                    <%= button_to mission_comment_path(c.mission.id, c.id), method: :delete,data: { confirm: 'are you sure?' } ,class:"trash-btn fa fa-trash" do %></p>
+                    <%= button_to mission_comment_path(c.mission.id, c.id), method: :delete,data: { confirm: 'are you sure?' } ,class:"trash-btn fa fa-trash" do %>
                     <% end %>
                   <% end %>
 
                 <% if user_signed_in? %>
                   <%= form_with(model: [@mission, @comment], local: true) do |f| %>
-                    <%= f.text_area :comment%>
-                    <br>
+                    <%= f.text_area :comment, class:"comment-form" %>
                     <%= button_tag type: "submit", class: "btn comment-create far fa-comment" do %> 
-                      コメントする
                     <% end %>
                   <% end %>
                 <% end %>     
             </div>
+      </div>
 
 <script>
   // document.querySelector('.like-create').onclick = function() {

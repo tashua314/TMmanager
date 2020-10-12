@@ -151,6 +151,29 @@
 
 .user-mission {
   text-align: center;
+  margin-bottom: 100px;
+
+  ul {
+    color: #1e366a;
+    border: dotted #1e366a 1px;
+    padding: 0.5em 0.5em 0.5em 2em;
+    width: 50%;
+    margin: 0 auto;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    
+  }
+  ul, li {
+    line-height: 1.5;
+    padding: 0.5em 0;
+  }
+  li {
+    text-align: left;
+  }
+
+  h3 {
+    margin-top: 20px;
+  }
 }
 
 .user-index {

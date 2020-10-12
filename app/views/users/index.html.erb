@@ -7,7 +7,7 @@
                         <div class="user-detail">
                                 <p>プロフィール No.<%= number %></p>
                                 <p><%= u.username %></p>
-                                <p><%= link_to 'ユーザーページへ', user_path(u.id), class:"link_tag" %></p>
+                                <p><%= link_to 'ユーザーページへ', user_path(u.id), class:"link_tag fas fa-house-user" %></p>
                         </div>
                     <% end %>
                     <% number += 1 %>

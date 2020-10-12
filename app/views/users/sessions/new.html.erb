@@ -20,10 +20,13 @@
       <% end %>
 
       <div class="actions">
-        <%= f.submit "Log in", class: "btn login" %>
-        <br>
-        <%= link_to "新規登録はこちらから", new_user_registration_path, class: "link_tag"%>
-        <%= render "users/shared/links" %>
+        <%= button_tag type: "submit", class:"btn cover-3d" do %>
+          <span>Log in</span>
+        <% end %>
+        <div class="others">
+          <%= link_to "新規登録はこちらから", new_user_registration_path, class: "link_tag"%>
+          <%= render "users/shared/links" %>
+        </div>
       </div>
     <% end %>
   </div>

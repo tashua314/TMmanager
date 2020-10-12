@@ -3,12 +3,13 @@
   <br>
   <%= f.text_area :content, :size => 140 %> 
   <br>
-    <p>期限日時
+    <p>期限
       <br>
       <%= f.hidden_field :deadline, :id => "deadline.id" %>
         <input type="text" id="userYear" value = "<%= @mission.deadline.year %>"  >年
         <input type="text" id="userMonth"value = "<%= @mission.deadline.month %>" >月
         <input type="text" id="userDate" value = "<%= @mission.deadline.day %>" >日
+        <br>
         <input type="text" id="userHour" value = "<%= @mission.deadline.hour %>" >時
         <input type="text" id="userMin"  value = "<%= @mission.deadline.min %>" >分
         <input type="text" id="userSec"  value = "<%= @mission.deadline.sec %>" >秒

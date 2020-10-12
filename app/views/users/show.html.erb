@@ -2,14 +2,14 @@
             <%= gravatar_for @user %>
             <h2><%= @user.username %></h2>
             <% if current_user.email != 'guest@example.com' %>
-              <%= link_to "マイページ編集", edit_user_registration_path, class:"link_tag fas fa-edit" %></p>
-            <% end %>
-            <% unless @user.email == 'guest@example.com' %>
-              <p>プロフィール : <%= safe_join(@user.profile.split("\n"),tag(:br)) %></p>
+              <%= link_to "マイページ編集", edit_user_registration_path, class:"link_tag fas fa-user-edit" %></p>
             <% end %>
           <section class="stats">
                   <%= render 'stats' %>
                 <%= render 'follow_form' %>
+            <% unless @user.email == 'guest@example.com' %>
+              <p> <%= safe_join(@user.profile.split("\n"),tag(:br)) %></p>
+            <% end %>
                 <div class="user">
                 <% if @user.id == current_user.id %>
                   <% else %>
@@ -17,10 +17,12 @@
                         <p><%= link_to 'DMする', room_path(@roomId), class:"fas fa-envelope link_tag" %></p>
                       <% else %>
                         <%= form_for @room do |f| %>
-                            <%= fields_for @entry do |e|%>
+                            <%= fields_for @enliy do |e|%>
                                 <% e.hidden_field :user_id, value: @user.id %>
                             <% end %>
-                          <%= f.submit "DMを開始する" %>
+                          <%= button_tag type: "submit", class:"btn cover-3d" do %>
+                            <span>DMを開始する</span>
+                          <% end %>
                         <% end %>
                     <% end %>
                 <% end %>
@@ -28,50 +30,52 @@
       </div>
 
       <div class="user-mission">
-                    <table class="table table-bordered">
-                  <tr>
-                      <h4>Mission総数 <%= @mission.count %></h4>
-                  </tr>
-                  <tr>
-                      <h4> 未完了タスク数
-                      <span class="leftCount"><%= @notclearmission.count %></span> 個</h4>
-                  </tr>
-                  <tr>
+              <ul>
+                    
+                  <li>
+                      <h4>
+                      Mission総数 <%= @mission.count %></h4>
+                  </li>
+                  <li>
                       <h4>完了タスク数
                       <span class="completeCount"><%= @clearmission.count %></span> 個</h4>
-                          <div class="taskDeleteBtn js-none" id="js-taskDeleteBtn">
-                            
+                          <div class="taskDeleteBtn js-none" id="js-taskDeleteBtn"> 
                           </div>
-                      </td>
-                  </tr>
-                  <tr>
+                  </li>
+                  <li>
+                      <h4> 未完了タスク数
+                      <span class="leftCount"><%= @notclearmission.count %></span> 個</h4>
+                  </li>
+                  <li>
                       <h4>Mission完遂率
-                  <% if @mission.count !=0 %>
-                      <span class="completionRate"><%= @clearmission.count*100/@mission.count %></span> %</h4>
-                  <% else %>
-                <td></td>
-                  <% end %>
-                  </tr>
+                    <% if @mission.count !=0 %>
+                        <span class="completionRate"><%= @clearmission.count*100/@mission.count %></span> %</h4>
+                    <% else %>
+                
+                    <% end %>
+                  </li>
+              </ul>
             </table>  
               <h3> Mission一覧</h3>
                 <% @user.missions.each do |t|  %>
-                    <br>
-                    Mission <%= t.content %>
-                    <br>
-                    <% if Time.now >= t.deadline  %>
-                      <h4 id="penalty-content">罰ゲーム <%= t.penalty %></h4>
-                    <% else %>
-                      罰ゲーム <%= t.penalty %>
-                    <% end %>
-                    達成可否
-                    <% if t.completed == 0 %>
-                      未達成
-                    <% else %>
-                      クリア
-                    <% end %>
-                    <%= link_to "詳細へ", mission_path(t.id), class:"link_tag fas fa-info-circle" %>
-                    <br>
-                  
+                  <div class="mission">
+                      <br>
+                      Mission <%= t.content %>
+                      <br>
+                      <% if Time.now >= t.deadline  %>
+                        <h4 id="penalty-content">罰ゲーム <%= t.penalty %></h4>
+                      <% else %>
+                        罰ゲーム <%= t.penalty %>
+                      <% end %>
+                      達成可否
+                      <% if t.completed == 0 %>
+                        未達成
+                      <% else %>
+                        クリア
+                      <% end %>
+                      <%= link_to "詳細へ", mission_path(t.id), class:"link_tag fas fa-info-circle" %>
+                      <br>
+                  </div>
                 <% end %>
                   <br>  
           </section>

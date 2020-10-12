@@ -1,10 +1,17 @@
 .mission {
-  margin: 10px 0;
+  padding: 0.5em 1em;
+  margin: 2em auto;
+  color: #5d627b;
+  background: white;
+  border-top: solid 5px #5d627b;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  width: 50%;
+  text-align: center;
 }
 
-.mission .mission-content {
-  color: #904669;
-  font-size: 25px;
+.mission .far {
+  cursor: default;
 }
 
 .mission .penalty {
@@ -21,27 +28,8 @@
   font-weight: 600;
 }
 
-.mission-index > ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.mission-index > ul > li {
-  margin-left: 20px;
-}
-
-.detail {
-  text-align: center;
-  margin-top: 120px;
-  margin-bottom: 20px;
-}
-
 .mission-detail {
-  margin-top: 100px;
+  padding-top: 10px;
 }
 
 .new-mission {

@@ -43,7 +43,7 @@
         <% end %>
           
             <li class="header-menu__item logout">
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"main-title fas fa-sign-out-alt" %>
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :get, class:"main-title fas fa-sign-out-alt" %>
             </li>
         </ul>
       <% else %>

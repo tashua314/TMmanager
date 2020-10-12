@@ -95,35 +95,7 @@
   // };
 
 
-  class HeaderMenu {
-      constructor() {
-          this.DOM = {};
-          this.DOM.btn = document.querySelector('.header-menu__btn');
-          this.DOM.cover = document.querySelector('.header-menu__cover');
-          this.DOM.container = document.querySelector('#global-container');
-          this.eventType = this._getEventType();
-          this._addEvent();
-      }
-
-      _getEventType() {
-          return window.ontouchstart ? 'touchstart' : 'click';
-      }
-
-      _toggle() {
-          this.DOM.container.classList.toggle('menu-open');
-      }
-
-      _addEvent() {
-          this.DOM.btn.addEventListener(this.eventType, this._toggle.bind(this));
-          this.DOM.cover.addEventListener(this.eventType, this._toggle.bind(this));
-      }
-  }
-  document.addEventListener('DOMContentLoaded', function () {
-      const main = new Headermenu();
-});
-
-  new HeaderMenu();
-
+  
   function set2fig(num) {
      // 数値が1桁だったら2桁の文字列にして返す
      var ret;

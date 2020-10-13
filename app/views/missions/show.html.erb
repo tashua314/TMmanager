@@ -24,7 +24,7 @@
                       <input type="hidden" id="userMin"  value = "<%= @mission.deadline.min %>" >
                       <input type="hidden" id="userSec"  value = "<%= @mission.deadline.sec %>" >
                   </p>
-                  <p id="RealtimeCountdownArea" ></p>
+                  <p id="RealtimeCountdownArea"></p>
                   <% if @mission.deadline >= Time.now %>
                     <%= link_to "Mission内容を変更する", edit_mission_path, class: "link_tag fas fa-edit" %>
                   <% end %>
@@ -87,15 +87,9 @@
       </div>
 
 <script>
-  // document.querySelector('.like-create').onclick = function() {
-  //         alert('いいねしました');
-  // };
-  // document.querySelector('.like-delete').onclick = function() {
-  //     alert('いいねを削除しました');
-  // };
 
 
-  
+{ 
   function set2fig(num) {
      // 数値が1桁だったら2桁の文字列にして返す
      var ret;
@@ -161,17 +155,17 @@
      else {
         // 期限が過ぎた場合
         msg = "Mission失敗";
-
-        // msg1 + "は、既に" + msg2 + "前に過ぎました。"
      }
    
      // 作成した文字列を表示
      document.getElementById("RealtimeCountdownArea").innerHTML = msg;
-     document.getElementById("deadline.id").value =  targetDate;
+     document.getElementById("deadline.id")=  targetDate;
 
 }
   // 1秒ごとに実行
   setInterval('showCountdown()',1000);
+
+}
 
 </script>
 

@@ -34,21 +34,25 @@
                     
                   <li>
                       <h4>
-                      Mission総数 <%= @mission.count %></h4>
+                        Mission総数 <%= @mission.count %>
+                      </h4>
                   </li>
                   <li>
                       <h4>完了タスク数
-                      <span class="completeCount"><%= @clearmission.count %></span> 個</h4>
+                        <span class="completeCount"><%= @clearmission.count %></span> 個
+                      </h4>
                           <div class="taskDeleteBtn js-none" id="js-taskDeleteBtn"> 
                           </div>
                   </li>
                   <li>
                       <h4> 未完了タスク数
-                      <span class="leftCount"><%= @notclearmission.count %></span> 個</h4>
+                        <span class="leftCount"><%= @notclearmission.count %></span> 個
+                      </h4>
                   </li>
                   <li>
-                      <h4>Mission完遂率
+
                     <% if @mission.count !=0 %>
+                      <h4>Mission完遂率
                         <span class="completionRate"><%= @clearmission.count*100/@mission.count %></span> %</h4>
                     <% else %>
                 

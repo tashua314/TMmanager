@@ -11,7 +11,6 @@ require("channels")
 
 
 
-
     
 // = require jquery 
 // = require jquery_ujs 

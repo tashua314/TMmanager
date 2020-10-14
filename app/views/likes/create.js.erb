@@ -1,0 +1,3 @@
+$("#index_like_<%= @mission.id %>").html("<%= j(render partial: 'likes/like', locals: { mission: @mission}) %>");
+
+$("#show/like_<%= @mission.id %>").html("<%= j(render partial: 'likes/like', locals: { mission: @mission}) %>");

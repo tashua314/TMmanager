@@ -3,11 +3,32 @@
                 <%= link_to "ログアウト", destroy_user_session_path, :method => :delete , class: "btn login fas fa-sign-out-alt" %>
           <% else %>
         <% end %>
-      
+          <div class="hero">
+              <div class="swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="hero__title">Time is Money</div>
+                    <%= image_tag 'image-1.jpg', class:"top__img" %>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="hero__title">Mission</div>
+                    <%= image_tag 'image-2.jpg', class:"top__img" %>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="hero__title">Colleague</div>
+                    <%= image_tag 'image-3.jpg', class:"top__img" %>
+                  </div>
+                </div>
+                <div class="hero__footer">
+                  <%= image_tag 'arrow.svg', class:"arrow" %>
+                  <span class="hero__scrolltext">scroll</span>
+                </div>
+              </div>
+          </div>
           <section class="top">
             <div class="top__inner">
               <div class="top__img cover-slide hover-darken inview">
-                <%= image_tag 'image01.jpg' %>
+                <%= image_tag 'image01.jpg', class:"top__img" %>
               </div>
               <div class="top__texts appear left">
                 <div class="top__texts-inner">
@@ -29,7 +50,10 @@
               </div>
             </div>
           </section>
+    
         
+
+
 <script>
 
 document.addEventListener('DOMContentLoaded', function () {

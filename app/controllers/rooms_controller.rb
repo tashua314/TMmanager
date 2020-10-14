@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
+  before_action :check_guest, only: [:show]
 
   def index
     @rooms = current_user.rooms.includes(:messages).order("messages.created_at desc")
@@ -24,9 +25,17 @@ class RoomsController < ApplicationController
     
   end
 
+
+  def check_guest
+    if  current_user.email == 'guest@example.com'
+        redirect_to users_path, alert: 'ゲストユーザーはDMできません。'
+      # else
+      #   redirect_to  new_mission_path
+    end
+  end
+
   private
     def entry_params
       params.require(:entry).permit(:user_id, :room_id).merge(room_id: @room.id)
     end
-    
 end

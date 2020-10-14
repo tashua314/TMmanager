@@ -51,6 +51,13 @@
   position: relative;
   overflow: hidden;
   z-index: 1;
+  margin-top: 30px;
+  width: 139px;
+  height: 69px;
+}
+
+.btn.slide-bg > span {
+  letter-spacing: 0.2em;
 }
 
 .btn.slide-bg::before {
@@ -181,11 +188,12 @@
 .like-btn {
   width: 25px;
   height: 30px;
-  font-size: 1.3em;
-  background-color: white;
+  font-size: 1.7em;
+  background-color: transparent;
   color: #808080;
   cursor: pointer;
   border: 0px none;
+  margin-bottom: 10px;
 }
 
 .unlike-btn {
@@ -368,5 +376,9 @@
   color: #1da1f3;
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
+}
+
+.like-delete li {
+  display: inline-block;
 }
 /*# sourceMappingURL=button.css.map */

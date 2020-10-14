@@ -3,11 +3,10 @@ Rails.application.routes.draw do
   get 'static_pages/help'
   root 'hello#index'
   post '/hello/guest_sign_in', to: 'hello#new_guest'
-  devise_for :users
-  # , controllers: {
-  #   registrations: 'users/registrations',
-  #   passwords: 'users/passwords'
-  # }
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
+  }
   
   get  'static_pages/home'
   get  'static_pages/help'

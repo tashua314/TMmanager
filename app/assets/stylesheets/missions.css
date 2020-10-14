@@ -1,17 +1,13 @@
+@charset "UTF-8";
 .mission {
-  padding: 0.5em 1em;
+  padding: 1.5em 1em;
   margin: 2em auto;
-  color: #5d627b;
-  background: white;
-  border-top: solid 5px #5d627b;
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
-          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  background-color: #eaebe6;
+  -webkit-box-shadow: 0 3px 5px black;
+          box-shadow: 0 3px 5px black;
   width: 50%;
   text-align: center;
-}
-
-.mission .far {
-  cursor: default;
+  letter-spacing: 0.1em;
 }
 
 .mission .penalty {
@@ -19,13 +15,35 @@
   font-size: 20px;
 }
 
-.mission > li {
-  margin-bottom: 2px;
+.mission h2 {
+  margin-bottom: 10px;
+}
+
+.mission h3 {
+  margin-bottom: 10px;
+  letter-spacing: 0.2em;
+}
+
+.mission h4 {
+  margin-bottom: 8px;
+}
+
+.mission ul {
+  margin-top: 10px;
+}
+
+.mission li {
+  margin-bottom: 10px;
+}
+
+.mission #detail {
+  margin-left: 12px;
 }
 
 #RealtimeCountdownArea {
   color: red;
   font-weight: 600;
+  letter-spacing: 0.2em;
 }
 
 .mission-detail {
@@ -41,7 +59,97 @@
   margin-bottom: 20px;
 }
 
-.destroy-btn {
-  margin-top: 5px;
+.mission-form .mission-penalty {
+  width: 210px;
+  height: 31px;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.mission-form h3 {
+  letter-spacing: 0.1em;
+}
+
+.mission-form .mission-deadline {
+  width: 100px;
+  height: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+h4 {
+  margin-bottom: 5px;
+}
+
+.mission-index {
+  margin-top: 10px;
+}
+
+.mission-index h2 {
+  margin-bottom: 10px;
+}
+
+.mission-complete {
+  margin-top: 20px;
+}
+
+.mission-edit .mission-content {
+  width: 146px;
+  height: 65px;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.mission-edit .mission-penalty {
+  width: 140px;
+  height: 20px;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.mission-edit label {
+  letter-spacing: 0.2em;
+}
+
+.hidden_box {
+  margin: 2em 0;
+  padding: 0;
+}
+
+.hidden_box label {
+  padding: 15px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.hidden_box label:hover {
+  color: #1da1f3;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.hidden_box input {
+  display: none;
+}
+
+.hidden_box > .hidden_show {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+/*クリックで中身表示*/
+.hidden_box input:checked ~ .hidden_show {
+  padding: 10px 0;
+  height: auto;
+  opacity: 1;
+  margin-top: 15px;
 }
 /*# sourceMappingURL=missions.css.map */

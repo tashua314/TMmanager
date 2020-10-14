@@ -20,6 +20,14 @@
     position: relative;
     overflow: hidden;
     z-index: 1;
+    margin-top: 30px;
+    width: 139px;
+    height: 69px;
+    
+  
+    & > span {
+      letter-spacing: 0.2em;
+    }
     
     &::before {
       content: "";
@@ -134,11 +142,12 @@
 .like-btn {
   width: 25px;
   height: 30px;
-  font-size: 1.3em;
-  background-color: $cWhite;
+  font-size: 1.7em;
+  background-color: transparent;
   color: #808080; 
   cursor: pointer;
   border: 0px none;
+  margin-bottom: 10px;
 }
 
 .unlike-btn {
@@ -316,3 +325,9 @@
 }
 
 
+.like-delete {
+  
+  li {
+    display: inline-block;
+  }
+}

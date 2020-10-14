@@ -77,6 +77,11 @@
 
 .fa-check-circle {
   color: $light_blue;
+
+  &:hover {
+    color: $cBlue;
+    transition: 0.5s ease;
+  }
 }
 
 .line-bc {
@@ -116,12 +121,14 @@
 
 .user-detail {
   width: 50%;
-  padding: 10px 0;
   border:1px solid darkgray;
   background-color:$cBgGray;
   display: block;
   text-align: center;
-  margin: 0 auto;
+  margin: 1em auto;
+  padding: 1.5em 1em;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 1.0);
+  letter-spacing: 0.1em;
 }
 
 .mycomment {
@@ -154,14 +161,13 @@
   margin-bottom: 100px;
 
   ul {
-    color: #1e366a;
-    border: dotted #1e366a 1px;
-    padding: 0.5em 0.5em 0.5em 2em;
+    padding: 1.5em 1em;
+    margin: 1em auto;
+    background-color: #eaebe6;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 1.0);
     width: 50%;
-    margin: 0 auto;
-    border-top: solid 5px #5d627b;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
-    
+    text-align: center;
+    letter-spacing: 0.1em;
   }
   ul, li {
     line-height: 1.5;

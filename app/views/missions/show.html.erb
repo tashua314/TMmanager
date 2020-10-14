@@ -1,11 +1,8 @@
       <div class="mission-detail">
         <div class="mission">
-            <h3>Mission詳細</h3>
-              <p>執行者 <%= @mission.user.username %>
-              <% if current_user.id != @user.id %>
+              執行者 <%= @mission.user.username %>
                       <%= link_to "ユーザー詳細", user_path(@user.id), class: "fas fa-info-circle link_tag" %>
-                    <% end %>
-                <p>内容 <%= @mission.content %></p>
+                <p><%= @mission.content %></p>
                 <p>開始日 <%= @mission.created_at.strftime("%Y-%m-%d %H:%M") %></p>
                 <div class = "penalty">
                   <% if @mission.deadline >= Time.now %>
@@ -15,7 +12,7 @@
                   <% end %>
                 </div>
               <% if @mission.completed == 0 %>
-                  <p>期限 <%= @mission.deadline %>
+                  <p>期限 <%= @mission.deadline.strftime("%Y-%m-%d %H:%M") %>
                     <br>
                       <input type="hidden" id="userYear" value = "<%= @mission.deadline.year %>"  >
                       <input type="hidden" id="userMonth"value = "<%= @mission.deadline.month %>" >
@@ -25,7 +22,7 @@
                       <input type="hidden" id="userSec"  value = "<%= @mission.deadline.sec %>" >
                   </p>
                   <p id="RealtimeCountdownArea"></p>
-                  <% if @mission.deadline >= Time.now %>
+                  <% if @mission.deadline >= Time.now && current_user.id == @mission.user_id %>
                     <%= link_to "Mission内容を変更する", edit_mission_path, class: "link_tag fas fa-edit" %>
                   <% end %>
                 <% else %>
@@ -34,35 +31,12 @@
                     </p>
               <% end %>
 
-              <div class="like">
-                <div class="like-delete">
-                  <h3>いいね<%= @mission.likes.count %>
-                  <% if current_user.already_liked?(@mission) %>
-                      <%= button_to mission_like_path(@mission), method: :delete, class:"unlike-btn", remote: true do %>
-                        <i class="fas fa-heart unlike-btn"></i>
-                  </h3>
-                      <% end %>
-                  <% end %>
-                </div>
-                <div class="like-create">
-                  <% unless current_user.already_liked?(@mission) %>
-                    <%= button_to mission_likes_path(@mission),class:"like-btn",  remote: true do %>
-                        <i class="far fa-heart like-btn"></i>
-                    <% end %>
-                  <% end %>
-                </div>
-
-                  <h3>いいねしたユーザー</h3>
-                  <%@mission.liked_users.each do |user| %>
-                    <%= user.username %>
-                  <% end %>
+              <div id="show_like_<%= @mission.id %>">
+                <%= render 'likes/like', mission: @mission %>
               </div>
-              
-                <div class="notice">
-                  <p class="notice  text-center"><%= params[:notice] %></p>
-                  <p class="alert text-center"><%= params[:alert] %></p>
-                </div>
+
         </div>
+      </div>
             <div class="comment-wrapper">
                 <h3>コメント数: <%= @mission.comments.count %></h3>
                   <% unless @mission.comments.count == 0 %>
@@ -72,22 +46,21 @@
                 <% @comments.each do |c| %>
                   <%= c.user.username unless c.user.blank? %>
                   <%= c.comment %>
-                    <%= button_to mission_comment_path(c.mission.id, c.id), method: :delete,data: { confirm: 'are you sure?' } ,class:"trash-btn fa fa-trash" do %>
+                    <%= link_to mission_comment_path(c.mission.id, c.id), method: :delete,data: { confirm: '消してもいいですか？' } ,class:"trash-btn fa fa-trash" do %>
                     <% end %>
                   <% end %>
-
+                  
                 <% if user_signed_in? %>
                   <%= form_with(model: [@mission, @comment], local: true) do |f| %>
-                    <%= f.text_area :comment, class:"comment-form" %>
+                    <%= f.text_field :comment, class:"comment-form" %>
                     <%= button_tag type: "submit", class: "btn comment-create far fa-comment" do %> 
                     <% end %>
                   <% end %>
                 <% end %>     
             </div>
-      </div>
+      
 
 <script>
-
 
 { 
   function set2fig(num) {

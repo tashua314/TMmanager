@@ -1,55 +1,154 @@
 @import "modules/color";
 
 .mission {
-  padding: 0.5em 1em;
+  padding: 1.5em 1em;
   margin: 2em auto;
-  color: #5d627b;
-  background: white;
-  border-top: solid 5px #5d627b;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  background-color: #eaebe6;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 1.0);
   width: 50%;
   text-align: center;
+  letter-spacing: 0.1em;
 
-  .far {
-    cursor: default;
-  }
   & .penalty {
     color:$cSubTitle;
     font-size:20px;
   }
-  & > li {
-    margin-bottom: 2px;
+  h2 {
+    margin-bottom: 10px;
+  }
+  h3 {
+    margin-bottom: 10px;
+    letter-spacing: 0.2em;
+  }
+  h4 {
+    margin-bottom: 8px;
+  }
+  ul {
+    margin-top: 10px;
+  }
+  li {
+    margin-bottom: 10px;
+    
+  }
+  #detail {
+    margin-left: 12px;
   }
 }
 
 #RealtimeCountdownArea {
   color: $cRed;
   font-weight: 600;
+  letter-spacing: 0.2em;
 }
-
-// .detail {
-//   text-align: center;
-//   margin-top: 120px;
-//   margin-bottom: 20px;
-// }
 
 .mission-detail {
   padding-top: 10px;
 }
+
 
 .new-mission {
   display:block;
   text-align:center;
 }
 
+
 .mission-form {
   &__li {
     margin-bottom: 20px;
   }
+
+  .mission-penalty {
+    width: 210px;
+    height: 31px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 600;
+  }
+  h3 {
+    letter-spacing: 0.1em;
+  }
+  .mission-deadline {
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    font-weight: 600;
+    }
+  }
+  
+  h4 {
+    margin-bottom: 5px;
+  }
+
+
+.mission-index {
+  margin-top: 10px;
+  h2 {
+    margin-bottom:10px;
+  }
+  
 }
 
-.destroy-btn {
-  margin-top: 5px;
+.mission-complete {
+  margin-top: 20px;
+}
+
+.mission-edit {
+
+  .mission-content {
+    width: 146px;
+    height: 65px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .mission-penalty {
+    width: 140px;
+    height: 20px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  label {
+    letter-spacing: 0.2em;
+    
+  }
 }
 
 
+.hidden_box {
+  margin: 2em 0;
+  padding: 0;
+  
+  label {
+    padding: 15px;
+    font-weight: bold;
+    border:none;
+    cursor :pointer;
+    
+    &:hover {
+      color: $light_blue;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+
+  input {
+    display: none;
+  }
+
+  & > .hidden_show {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.8s;
+  }
+}
+
+/*クリックで中身表示*/
+.hidden_box input:checked ~ .hidden_show {
+  padding: 10px 0;
+  height: auto;
+  opacity: 1;
+  margin-top: 15px;
+}

@@ -11,10 +11,12 @@
               <p> <%= safe_join(@user.profile.split("\n"),tag(:br)) %></p>
             <% end %>
                 <div class="user">
-                <% if @user.id == current_user.id %>
+                <% if @user.id == current_user.id  %>
                   <% else %>
                     <% if @isRoom == true %>
-                        <p><%= link_to 'DMする', room_path(@roomId), class:"fas fa-envelope link_tag" %></p>
+                        <%= link_to room_path(@roomId), class:"btn cover-3d" do %>
+                          <span>DMを開始する</span>
+                        <% end %>
                       <% else %>
                         <%= form_for @room do |f| %>
                             <%= fields_for @enliy do |e|%>

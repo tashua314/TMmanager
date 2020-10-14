@@ -9,7 +9,7 @@
       <%= javascript_pack_tag 'application', media: 'all','data-turbolinks-track': 'reload' %>
       <%= yield :css %>
   </head>
-    
+
   <body>
         <% flash.each do |key, value| %>
           <%= content_tag(:div, value, class: key) %>
@@ -24,11 +24,11 @@
                     <main>
                       <%= yield %>
                     </main>
-            <% if user_signed_in? %>
+            
               <footer class="footer">
                 <%= render 'layouts/footer' %>
               </footer>
-            <% end %>
+        
             
           </div>
                   <nav class ="header-menu">
@@ -38,37 +38,36 @@
       </div>
   </body>
 
-<script>
-{
+  <script>
+  {
 
-  class HeaderMenu {
-        constructor() {
-            this.DOM = {};
-            this.DOM.btn = document.querySelector('.header-menu__btn');
-            this.DOM.cover = document.querySelector('.header-menu__cover');
-            this.DOM.container = document.querySelector('#global-container');
-            this.eventType = this._getEventType();
-            this._addEvent();
-        }
+    class HeaderMenu {
+          constructor() {
+              this.DOM = {};
+              this.DOM.btn = document.querySelector('.header-menu__btn');
+              this.DOM.cover = document.querySelector('.header-menu__cover');
+              this.DOM.container = document.querySelector('#global-container');
+              this.eventType = this._getEventType();
+              this._addEvent();
+          }
 
-        _getEventType() {
-            return window.ontouchstart ? 'touchstart' : 'click';
-        }
+          _getEventType() {
+              return window.ontouchstart ? 'touchstart' : 'click';
+          }
 
-        _toggle() {
-            this.DOM.container.classList.toggle('menu-open');
-        }
+          _toggle() {
+              this.DOM.container.classList.toggle('menu-open');
+          }
 
-        _addEvent() {
-            this.DOM.btn.addEventListener(this.eventType, this._toggle.bind(this));
-            this.DOM.cover.addEventListener(this.eventType, this._toggle.bind(this));
-        }
-  } 
-    new HeaderMenu();
-}
+          _addEvent() {
+              this.DOM.btn.addEventListener(this.eventType, this._toggle.bind(this));
+              this.DOM.cover.addEventListener(this.eventType, this._toggle.bind(this));
+          }
+    } 
+      new HeaderMenu();
+  }
 
-</script>
-
+  </script>
 
 </html>
     

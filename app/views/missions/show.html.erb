@@ -2,6 +2,9 @@
         <div class="mission">
               執行者 <%= @mission.user.username %>
                       <%= link_to "ユーザー詳細", user_path(@user.id), class: "fas fa-info-circle link_tag" %>
+                  <% if @mission.deadline >= Time.now && current_user.id == @mission.user_id %>
+                    <%= link_to "Mission内容を変更する", edit_mission_path, class: "link_tag fas fa-edit" %>
+                  <% end %>
                 <p><%= @mission.content %></p>
                 <p>開始日 <%= @mission.created_at.strftime("%Y-%m-%d %H:%M") %></p>
                 <div class = "penalty">
@@ -22,9 +25,6 @@
                       <input type="hidden" id="userSec"  value = "<%= @mission.deadline.sec %>" >
                   </p>
                   <p id="RealtimeCountdownArea"></p>
-                  <% if @mission.deadline >= Time.now && current_user.id == @mission.user_id %>
-                    <%= link_to "Mission内容を変更する", edit_mission_path, class: "link_tag fas fa-edit" %>
-                  <% end %>
                 <% else %>
                     <p class="mission-clear">
                       Missionクリア！
@@ -46,8 +46,9 @@
                 <% @comments.each do |c| %>
                   <%= c.user.username unless c.user.blank? %>
                   <%= c.comment %>
-                    <%= link_to mission_comment_path(c.mission.id, c.id), method: :delete,data: { confirm: '消してもいいですか？' } ,class:"trash-btn fa fa-trash" do %>
+                    <%= link_to mission_comment_path(c.mission.id, c.id), method: :delete,data: { confirm: '削除してもいいですか？' } ,class:"trash-btn fa fa-trash" do %>
                     <% end %>
+                    <br>
                   <% end %>
                   
                 <% if user_signed_in? %>

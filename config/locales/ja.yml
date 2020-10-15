@@ -141,9 +141,9 @@ ja:
     select:
       prompt: 選択してください
     submit:
-      create: 登録する
+      create: フォローする
       submit: 保存する
-      update: 更新する
+      update: フォロー解除する
   number:
     currency:
       format:

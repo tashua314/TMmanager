@@ -381,4 +381,9 @@
 .like-delete li {
   display: inline-block;
 }
+
+.dm-btn .fa-envelope-square {
+  font-size: 1.8em;
+  border-radius: 50%;
+}
 /*# sourceMappingURL=button.css.map */

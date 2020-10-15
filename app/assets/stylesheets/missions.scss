@@ -4,7 +4,7 @@
   padding: 1.5em 1em;
   margin: 2em auto;
   background-color: #eaebe6;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 1.0);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 1.0);
   width: 50%;
   text-align: center;
   letter-spacing: 0.1em;
@@ -93,6 +93,13 @@
 }
 
 .mission-edit {
+  padding: 1.5em 1em;
+  margin: 2em auto;
+  background-color: #eaebe6;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 1.0);
+  width: 70%;
+  text-align: center;
+  letter-spacing: 0.1em;
 
   .mission-content {
     width: 146px;
@@ -111,10 +118,20 @@
 
   label {
     letter-spacing: 0.2em;
-    
+    margin-left: 10px;
   }
 }
 
+
+.mission-new {
+  padding: 1.5em 1em;
+  margin: 2em auto;
+  background-color: #eaebe6;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 1.0);
+  width: 70%;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
 
 .hidden_box {
   margin: 2em 0;

@@ -1,34 +1,38 @@
       <div class="detail">
             <%= gravatar_for @user %>
             <h2><%= @user.username %></h2>
-            <% if current_user.email != 'guest@example.com' %>
+            <% if current_user.email != 'guest@example.com' && @user.id == current_user.id %>
               <%= link_to "マイページ編集", edit_user_registration_path, class:"link_tag fas fa-user-edit" %></p>
             <% end %>
+            <div class="user">
+                <% if @user.id == current_user.id  %>
+                  <% else %>
+                    <% if @isRoom == true %>
+                      <div class="dm-btn">
+                        <%= link_to room_path(@roomId), class:"btn cover-3d" do %>
+                          <span><i class="fas fa-envelope-square"></i></span>
+                        <% end %>
+                      </div>
+                      <% else %>
+                        <div class="dm-btn">
+                          <%= form_for @room do |f| %>
+                              <%= fields_for @enliy do |e|%>
+                                  <% e.hidden_field :user_id, value: @user.id %>
+                              <% end %>
+                            <%= button_tag type: "submit", class:"btn cover-3d" do %>
+                              <span><i class="fas fa-envelope-square"></i></span>
+                        </div>
+                          <% end %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            </div>
           <section class="stats">
                   <%= render 'stats' %>
                 <%= render 'follow_form' %>
             <% unless @user.email == 'guest@example.com' %>
               <p> <%= safe_join(@user.profile.split("\n"),tag(:br)) %></p>
             <% end %>
-                <div class="user">
-                <% if @user.id == current_user.id  %>
-                  <% else %>
-                    <% if @isRoom == true %>
-                        <%= link_to room_path(@roomId), class:"btn cover-3d" do %>
-                          <span>DMを開始する</span>
-                        <% end %>
-                      <% else %>
-                        <%= form_for @room do |f| %>
-                            <%= fields_for @enliy do |e|%>
-                                <% e.hidden_field :user_id, value: @user.id %>
-                            <% end %>
-                          <%= button_tag type: "submit", class:"btn cover-3d" do %>
-                            <span>DMを開始する</span>
-                          <% end %>
-                        <% end %>
-                    <% end %>
-                <% end %>
-            </div>
       </div>
 
       <div class="user-mission">

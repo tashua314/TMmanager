@@ -3,8 +3,8 @@
   padding: 1.5em 1em;
   margin: 2em auto;
   background-color: #eaebe6;
-  -webkit-box-shadow: 0 3px 5px black;
-          box-shadow: 0 3px 5px black;
+  -webkit-box-shadow: 0 3px 10px black;
+          box-shadow: 0 3px 10px black;
   width: 50%;
   text-align: center;
   letter-spacing: 0.1em;
@@ -94,6 +94,17 @@ h4 {
   margin-top: 20px;
 }
 
+.mission-edit {
+  padding: 1.5em 1em;
+  margin: 2em auto;
+  background-color: #eaebe6;
+  -webkit-box-shadow: 0 3px 10px black;
+          box-shadow: 0 3px 10px black;
+  width: 70%;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
 .mission-edit .mission-content {
   width: 146px;
   height: 65px;
@@ -112,6 +123,18 @@ h4 {
 
 .mission-edit label {
   letter-spacing: 0.2em;
+  margin-left: 10px;
+}
+
+.mission-new {
+  padding: 1.5em 1em;
+  margin: 2em auto;
+  background-color: #eaebe6;
+  -webkit-box-shadow: 0 3px 10px black;
+          box-shadow: 0 3px 10px black;
+  width: 70%;
+  text-align: center;
+  letter-spacing: 0.1em;
 }
 
 .hidden_box {

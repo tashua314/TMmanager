@@ -20,7 +20,7 @@
                   </div>
                 </div>
                 <div class="hero__footer">
-                  <%= image_tag 'arrow.svg', class:"arrow" %>
+                  <%= image_tag 'arrow.svg', class:"hero__downarrow" %>
                   <span class="hero__scrolltext">scroll</span>
                 </div>
               </div>
@@ -28,12 +28,12 @@
           <section class="top">
             <div class="top__inner">
               <div class="top__img cover-slide hover-darken inview">
-                <%= image_tag 'image01.jpg', class:"top__img" %>
+                <%= image_tag 'image01.jpg', class:"top__img, lozad" %>
               </div>
               <div class="top__texts appear left">
                 <div class="top__texts-inner">
                   <div class="top__title sub-title inview">
-                    <span class="purple">Execute</span> <span>the mission</span>
+                    <span class="red">Execute</span> <span>the mission</span>
                   </div>
                     <div class="top__sub sub-title">任務を遂行せよ</div>
                       <div class="top__description">
@@ -50,10 +50,6 @@
               </div>
             </div>
           </section>
-    
-        
-
-
 <script>
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -105,5 +101,47 @@ class ScrollObserver {
     }
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    const hero = new HeroSlider('.swiper-container');
+    hero.start();
+});
+
+class HeroSlider {
+    constructor(el) {
+        this.el = el;
+        this.swiper = this._initSwiper();
+    }
+
+    _initSwiper() {
+        return new Swiper(this.el, {
+            // Optional parameters
+            // direction: 'vertical',
+            loop: true,
+            grabCursor: true,
+            effect: 'coverflow',
+            centeredSlides: true,
+            slidesPerView: 1,
+            speed: 1000,
+            breakpoints: {
+                1024: {
+                    slidesPerView: 2,
+                }
+            },
+        });
+    }
+
+    start(options = {}) {
+        options = Object.assign({
+            delay: 4000,
+            disableOnInteraction: false
+        }, options);
+        
+        this.swiper.params.autoplay = options;
+        this.swiper.autoplay.start();
+    }
+    stop() {
+        this.swiper.autoplay.stop();
+    }
+}
 </script>
     

@@ -10,8 +10,8 @@ require("channels")
   
 
 
-
-    
+//= require swiper/swiper-bundle.js
+//= require swiper.js
 // = require jquery 
 // = require jquery_ujs 
 // Uncomment to copy all static images under ../images to the output folder and reference

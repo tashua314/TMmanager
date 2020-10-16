@@ -1,4 +1,5 @@
 @import "modules/color";
+@import "modules/dimensions";
 
 @mixin animation(
   $name,
@@ -61,5 +62,16 @@
 .like-create {
   li {
     display: inline-block;
+  }
+}
+
+@keyframes kf-arrow-anime {
+  0%,
+  50%,
+  100% {
+    transform: translateY(-10%);
+  }
+  30% {
+    transform: none;
   }
 }

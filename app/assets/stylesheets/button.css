@@ -52,8 +52,8 @@
   overflow: hidden;
   z-index: 1;
   margin-top: 30px;
-  width: 139px;
-  height: 69px;
+  width: 119px;
+  height: 59px;
 }
 
 .btn.slide-bg > span {
@@ -163,12 +163,14 @@
   color: #535353;
   font-size: 15px;
   margin-right: 10px;
+  border: none;
 }
 
 .link_tag:hover {
   color: #1da1f3;
   -webkit-transition: 1s ease;
   transition: 1s ease;
+  cursor: pointer;
 }
 
 .link_tag__follow {

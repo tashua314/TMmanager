@@ -3,13 +3,13 @@ class CommentsController < ApplicationController
   before_action :set_mission, only:[:create]
 
     def create
-      mission = Mission.find(params[:mission_id])
-      @comment = mission.comments.build(comment_params) 
+      @mission = Mission.find(params[:mission_id])
+      @comment = @mission.comments.build(comment_params) 
       @comment.user_id = current_user.id
       @comment_mission = @comment.mission
       if @comment.save
-        redirect_to controller: :missions, action: :show, id: mission.id, notice:  'コメントしました'
-      #   @comment_mission.create_notification_comment!(current_user, @comment.id)
+        redirect_to controller: :missions, action: :show, id: @mission.id, notice:  'コメントしました'
+        @comment_mission.create_notification_by(current_user)
       #   render :index
       # else
       #   flash[:aleft] = 'コメントできませんでした'

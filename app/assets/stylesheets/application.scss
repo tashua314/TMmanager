@@ -302,6 +302,7 @@ main {
   margin-top: 150px;
   bottom: 0;
   position: fixed;
+  z-index: 2;
 
 
   &__nav {
@@ -365,12 +366,13 @@ main {
 
 // users
 .generic-form {
-  width: 480px;
-  margin: $wide * 2 auto;
-  padding: $wide * 2;
-  border-radius: $wide;
-  border: solid 4px $very_dark_cyan;
-  background-color: #fafafa;
+  padding: 1.5em 1em;
+  margin: 2em auto;
+  background-color: #eaebe6;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 1.0);
+  width: 50%;
+  text-align: center;
+  letter-spacing: 0.1em;
 
   form {
     div {
@@ -402,12 +404,13 @@ main {
 #container {
   #login-form {
     min-height: 100vh;
-    padding:100px 0;
     background-color: $very_light_gray;
     box-shadow: 0 8px 40px -10px rgba(0, 0, 0, 0.8);
     background-image:url("image-1.jpg");
     background-size: cover;
+    
   h1 {
+    margin-top: 100px;
     display: inline-block;
     border-bottom: solid 4px gray;
     background-color: transparent;
@@ -463,6 +466,7 @@ main {
       }
       .link_tag {
         margin-top: 10px;
+        
         color: rgba(255, 255, 255, 1.0);
         
         &:hover {
@@ -530,6 +534,8 @@ main {
   text-decoration: none;
   &:hover {
     text-decoration: underline;
+    color: $cBlue;
+    transition: 0.3s all;
   }
 }
 
@@ -561,6 +567,7 @@ main {
         $name: kf-cover-slide,
         $duration: 1.6s,
         $timing-function: ease-in-out
+        
       );
     }
   }

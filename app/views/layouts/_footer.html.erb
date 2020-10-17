@@ -29,9 +29,8 @@
                           <%= link_to "ミッション作成", new_mission_path,class: "link_tag fas fa-envelope" %>
                         </li>
                     <% end %>
-
                         <li class="footer_li item">
-                          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete,class: "link_tag fas fa-sign-out-alt" %>
+                          <%= link_to 'ログアウト', destroy_user_session_path, method: :get ,class: "link_tag fas fa-sign-out-alt" %>
                         </li>
                   </ul>
                 <div class="footer__copyright item">

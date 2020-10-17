@@ -5,27 +5,26 @@
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
-      <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
       <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
       <script src="https://polyfill.io/v2/polyfill.min.js? features=IntersectionObserver"></script>
-      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-      <%= javascript_pack_tag 'application', media: 'all','data-turbolinks-track': 'reload' %>
-      <%= javascript_pack_tag 'pace', media: 'all','data-turbolinks-track': 'reload' %>
+      <%= stylesheet_link_tag 'application', media: 'all' %>
+      <%= javascript_pack_tag 'application', media: 'all' %>
       <%= yield :css %>
   </head>
 
   <body>
+    <% if user_signed_in? %>
         <% flash.each do |key, value| %>
           <%= content_tag(:div, value, class: key) %>
         <% end %>
+    <% end %>
       <div id="global-container">
           <div id="container">
             <div class="header-menu__cover"></div>
               <header class ="header">
                 <%= render 'layouts/header' %>
               </header>
-
                     <main>
                       <%= yield %>
                     </main>
@@ -46,7 +45,6 @@
 
   <script>
   {
-
     class HeaderMenu {
           constructor() {
               this.DOM = {};

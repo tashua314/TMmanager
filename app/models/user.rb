@@ -69,10 +69,15 @@ class User < ApplicationRecord
   def unfollow!(other_user)
     following_relationships.find_by(following_id: other_user.id).destroy
   end
+    
   
   def already_liked?(mission)
     self.likes.exists?(mission_id: mission.id)
   end
+
+  # def already_commented?(mission)
+  #   self.comments.exists?(mission_id: mission.id)
+  # end 
 
   def create_notification_follow!(current_user)
     temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])

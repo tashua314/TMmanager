@@ -11,7 +11,7 @@ class LikesController < ApplicationController
     @mission = Mission.find(params[:mission_id])
     @mission.create_notification_by(current_user)
       respond_to do |format|
-        format.html {redirect_to request.referrer}
+        format.html { request.referrer}
         format.js
       end
   end

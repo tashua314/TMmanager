@@ -50,7 +50,9 @@
         <ul class="header-menu__main">
               <% unless current_page?new_user_session_path %>
                 <li class="header-menu__item">
-                    <%= link_to "ログイン", missions_path,class: "main-title login fas fa-sign-in-alt" %>
+                  <div data-turbolinks="false">
+                    <%= link_to "ログイン", missions_path,class: "main-title login fas fa-sign-in-alt", data: {"turbolinks" => false} %>
+                  </div>
               <% end %>
             </li>
               <% unless current_page?new_user_registration_path %>

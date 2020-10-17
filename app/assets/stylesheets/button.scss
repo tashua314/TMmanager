@@ -21,8 +21,8 @@
     overflow: hidden;
     z-index: 1;
     margin-top: 30px;
-    width: 139px;
-    height: 69px;
+    width: 119px;
+    height: 59px;
     
   
     & > span {
@@ -119,9 +119,11 @@
     color: $cSubTitle;
     font-size: 15px;
     margin-right: 10px;
+    border: none;
     &:hover {
       color: $light_blue;
       transition: 1s ease;
+      cursor: pointer;
     }
     
     &__follow {
@@ -333,7 +335,6 @@
 }
 
 .dm-btn {
-  
   .fa-envelope-square {
     font-size: 1.8em;
     border-radius: 50%;

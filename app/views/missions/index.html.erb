@@ -7,6 +7,36 @@
                 <% end %>
             </div>
         
-              <div id="mission_index_new">
-                <%= render 'mission_new', missions: @missions %>
-              </div>
+                  <% @missions.each do |t| %>
+                    <% if t.completed == 0 %>
+                      <div class="mission">
+                          <h2> <%= t.user.username %></h2>
+                          <h3><%= t.content %></h3>
+                          <% if Time.now >= t.deadline  %>
+                              <p id = "failure"> Mission失敗</p>
+                              <h4 id="penalty-content">罰ゲーム <%= t.penalty %> </h4>
+                            <% else %>
+                              <h4>期限 <%= t.deadline.strftime("%Y-%m-%d %H:%M")  %></h4>
+                          <% end %>   
+            
+                            <i class="far fa-heart"></i><%= t.liked_users.count %>
+                            <i class="far fa-comment"></i><%= t.comments.count %> 
+                            <ul>
+                                  <li id = "detail">
+                                      <%= link_to "詳細へ", mission_path(t.id), class: "link_tag fas fa-info-circle"%>
+                              
+                              <% if user_signed_in? && current_user.id == t.user_id %> 
+                                <% if t.deadline >= Time.now %>
+                                  
+                                        <%= link_to "編集する", edit_mission_path(t.id), class: "link_tag fa fa-edit" %>
+                                  </li>
+                                  <li class="destroy-btn">
+                                    <%= button_to  mission_path(t.id), method: :delete, data: { confirm: '本当に諦めてもいいですか？' }, class: "trash-btn fa fa-trash" do %>削除する
+                                    <% end %>
+                                  </li>
+                                <% end %>
+                              <% end %>
+                            </ul> 
+                      </div>    
+                    <% end %>
+                  <% end %>

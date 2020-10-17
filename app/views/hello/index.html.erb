@@ -1,6 +1,10 @@
+        <head>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+          <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+        </head>
         <% if user_signed_in? %>
-                <h2>ようこそ <%= link_to current_user.username + "さん", user_path(current_user.id), class:"user_name" %></h2>
-                <%= link_to "ログアウト", destroy_user_session_path, :method => :delete , class: "btn login fas fa-sign-out-alt" %>
+                <h2>ようこそ <%= link_to current_user.username + "さん", user_path(current_user.id), class:"user_name " %></h2>
+                
           <% else %>
         <% end %>
           <div class="hero">

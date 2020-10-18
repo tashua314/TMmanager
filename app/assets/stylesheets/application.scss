@@ -706,7 +706,6 @@ h4 {
   height: 80px;
   border: solid 1px #ccc; 
   cursor: pointer;
-  background: url(画像のurlを挿入する);
   background-size: 101%;
   background-position: top left;
   border-radius: 100%;
@@ -722,6 +721,18 @@ h4 {
     height: 80px;
     border: solid 1px #ccc; 
     background-size: 101%;
+    background-position: top left;
+    border-radius: 100%;
+    margin: 10px auto;
+    transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.comment-image {
+    display: block;
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border: solid 1px #ccc; 
     background-position: top left;
     border-radius: 100%;
     margin: 10px auto;

@@ -16,21 +16,31 @@
                     <div class="balloon6">
                         <div class="chatting">
                             <div class="says">
-                            <%= m.user.username %><br>
+                            <% if m.user.image? %>
+                                    <%= image_tag m.user.image_url, class:"comment-image" %>
+                                <% else %>
+                                <%= gravatar_for m.user %>
+                            <% end %>
                                 <p>
                                     <%= m.body %>
                                 </p>
-                                <%= m.created_at.strftime("%m-%d-%H:%M") %>
+                                <br>
+                                <%= m.created_at.strftime("%m-%d %H:%M") %>
                             </div>
                         </div>
                     </div>
                     <% else %>
                             <div class="mycomment">
-                                <%= m.user.username %><br>
+                                    <% if m.user.image? %>
+                                        <%= image_tag m.user.image_url, class:"comment-image" %>
+                                        <% else %>
+                                        <%= gravatar_for m.user %>
+                                    <% end %>
                                 <p>
                                     <%= m.body %>    
                                 </p>
-                                <%= m.created_at.strftime("%m-%d-%H:%M") %>
+                                <br>
+                                <%= m.created_at.strftime("%m-%d %H:%M") %>
                             </div>
                 <% end %>
             </div>

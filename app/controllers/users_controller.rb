@@ -77,13 +77,13 @@ class UsersController < ApplicationController
 
 
   private
-  # def user_params
-  #   params.require(:user).permit(:username, :email, :profile)
-  # end
+  def user_params
+    params.require(:user).permit(:username, :email, :profile, :image)
+  end
 
-  # def update_params
-  #   params.require(:user).permit(:id, :username, :email, :profile)
-  # end
+  def update_params
+    params.require(:user).permit(:username, :email, :profile, :image)
+  end
 
   # def private_user
   #   if current_user.email == 'guest@example.com'

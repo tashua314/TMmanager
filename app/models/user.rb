@@ -4,10 +4,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable,:validatable
-
+  
   # mount_uploader :image, ImageUploader
   before_save { self.email = email.downcase }
   validates :username,   presence: true, length: {maximum: 50}
+  mount_uploader :image, ImageUploader
 
   VALID_EMAIML_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, 
@@ -19,7 +20,7 @@ class User < ApplicationRecord
                       # has_secure_password
   validates :profile, length: { maximum: 200 } 
 
-
+  
   has_many :missions, dependent: :destroy 
   has_many :messages, dependent: :destroy 
   has_many :likes, dependent: :destroy
@@ -33,7 +34,6 @@ class User < ApplicationRecord
   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
   
   has_many :followers, through: :follower_relationships, dependent: :destroy
-  
   
   
   # 渡された文字列のハッシュ値を返す
@@ -75,9 +75,7 @@ class User < ApplicationRecord
     self.likes.exists?(mission_id: mission.id)
   end
 
-  # def already_commented?(mission)
-  #   self.comments.exists?(mission_id: mission.id)
-  # end 
+  
 
   def create_notification_follow!(current_user)
     temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])

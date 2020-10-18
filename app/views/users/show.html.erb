@@ -1,5 +1,9 @@
       <div class="detail">
-            <%= gravatar_for @user %>
+            <% if @user.image? %>                                                              
+                <%= image_tag @user.image_url, class:"image" if @user.image? %>
+              <% else %>
+                <%= gravatar_for @user %>
+            <% end %>
             <h2><%= @user.username %></h2>
             <% if current_user.email != 'guest@example.com' && @user.id == current_user.id %>
               <%= link_to "マイページ編集", edit_user_registration_path, class:"link_tag fas fa-user-edit" %></p>

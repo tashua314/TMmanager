@@ -10,7 +10,15 @@
                   <% @missions.each do |t| %>
                     <% if t.completed == 0 %>
                       <div class="mission">
-                          <h2> <%= t.user.username %></h2>
+                          <% if t.user.image? %>    
+                            <p>
+                              <%= image_tag t.user.image_url, class:"image" if t.user.image? %>
+                            </p>                                                          
+                            <% else %>
+                            <p>
+                              <%= gravatar_for t.user %>
+                            </p>
+                          <% end %>
                           <h3><%= t.content %></h3>
                           <% if Time.now >= t.deadline  %>
                               <p id = "failure"> Mission失敗</p>

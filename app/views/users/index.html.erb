@@ -7,6 +7,15 @@
                         <div class="user-detail">
                                 <p>プロフィール No.<%= number %></p>
                                 <p><%= u.username %></p>
+                                <% if u.image? %> 
+                                <p>
+                                        <%= image_tag u.image_url, class:"image" if u.image? %>
+                                </p>
+                                    <% else %>
+                                    <p>
+                                        <%= gravatar_for u %>
+                                    </p>
+                                <% end %>
                                 <p><%= link_to 'ユーザーページへ', user_path(u.id), class:"link_tag fas fa-house-user" %></p>
                         </div>
                     <% end %>

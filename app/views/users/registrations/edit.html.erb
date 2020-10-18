@@ -5,11 +5,13 @@
       <%= render "users/shared/error_messages", resource: resource %>
       <%= render "form", f: f %>
       <div class="actions">
-        <%= f.submit "更新",class:"btn " %>
+        <%= button_tag type: "submit" , class:"btn cover-3d" do %>
+          <span>更新</span>
+        <% end %>
         <%= link_to "キャンセル",user_path(current_user) ,class:"btn" %>
       </div>
     <% end %>
   </div>
-  <p><%= button_to "退会する", registration_path(resource_name), data: { confirm: "Are you sure?" },class:"btn" ,method: :delete %></p>
-
-
+  <%= button_to registration_path(resource_name), data: { confirm: "本当に退会してもいいですか？" },class:"btn retire" ,method: :delete do %>
+    <span>退会する</span>
+  <% end %>

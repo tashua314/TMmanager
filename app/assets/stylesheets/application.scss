@@ -702,8 +702,8 @@ h4 {
 .gravatar {
   display: block;
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border: solid 1px #ccc; 
   cursor: pointer;
   background: url(画像のurlを挿入する);
@@ -714,6 +714,33 @@ h4 {
   -webkit-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
   transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
 }
+
+.image {
+    display: block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border: solid 1px #ccc; 
+    background-size: 101%;
+    background-position: top left;
+    border-radius: 100%;
+    margin: 10px auto;
+    transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.image-notification {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border: solid 1px #ccc; 
+    background-size: 101%;
+    background-position: top left;
+    border-radius: 100%;
+    margin: 10px auto;
+    transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
 
 .fa-trash {
   color: $cBlack;
@@ -784,6 +811,10 @@ h4 {
       transform: translate(-50%, -50%);
     }
   }
+}
+
+.field {
+  margin-bottom: 10px;
 }
 
 .hero {

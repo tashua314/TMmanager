@@ -3,6 +3,11 @@
     <% if notification.checked == false %>
         <div class = "notification-index">
                     <%= link_to user_path(visiter), class:"link_tag" do %>
+                        <% if visiter.image? %>                                                              
+                            <%= image_tag visiter.image_url, class:"image" if visiter.image? %>
+                            <% else %>
+                            <%= gravatar_for visiter %>
+                        <% end %>
                         <%= visiter.username %>さんが
                     <% end %>
 
@@ -11,6 +16,7 @@
                         <ul> 
                             <li>
                                 あなたにDMを送りました
+
                             </li>
                             <li>
                                 <%= button_to notification_path(notification.id),method: :put, class: "notification-btn" do %>
@@ -38,7 +44,6 @@
                                     </div>
 
                         <% when 'comment' then %>
-                        <% if notification.mission.user_id == visited.id %>
                         <ul>
                             <li>
                                 あなたのMissionにコメントしました
@@ -48,7 +53,6 @@
                                     <i class="far fa-check-circle"></i>
                             </li>
                         </ul>
-                            <% end %>
                             <div class="small-text-muted text-right">
                             <%= time_ago_in_words(notification.created_at).upcase %>前
                             </div>
@@ -70,8 +74,8 @@
                                 </div>
                         <% end %>
 
-                        
-                    
+                
+
         </div>  
 
     <% end %>                

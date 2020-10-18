@@ -10,16 +10,28 @@ class Mission < ApplicationRecord
   has_many :notifications, dependent: :destroy
 
 
-  def create_notification_by(current_user)
-    notification = current_user.active_notifications.new(
-      mission_id: id,
-      visited_id: user_id,
-      action:"like"
-    )
-      if notification.visiter_id == notification.visited_id
-        notification.checked = true
-      end
-      notification.save if notification.valid?
+  # def create_notification_by(current_user)
+  #   notification = current_user.active_notifications.new(
+  #     mission_id: id,
+  #     visited_id: user_id,
+  #     action:"like"
+  #   )
+  #     if notification.visiter_id == notification.visited_id
+  #       notification.checked = true
+  #     end
+  #     notification.save if notification.valid?
+  # end
+
+  def create_notification_deadline!(mission)
+    # Missionが期限切れになると通知する
+    temp = Notification.where(["visiter_id = ?  and mission_id = ? and action = ? ", user_id, id, 'expire'])
+    if mission.notifications.nil? && Time.now > mission.deadline
+      notification = current_user.active_notifications.new(
+        mission_id: id,
+        visiter_id: user_id,
+        action: 'expire'
+      )
+    end
   end
 
   def create_notification_like!(current_user)
@@ -65,4 +77,6 @@ class Mission < ApplicationRecord
         end
         notification.save if notification.valid?
     end
+
+    
   end

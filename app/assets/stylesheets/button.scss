@@ -52,16 +52,26 @@
     }
 }
 
-  &.login {
-    width: 100px;
+&.login {
+  width: 100px;
 
-    &:hover {
-      background-color: $cRed;
-      transform: translate(-2.5px, -2.5px);
-      box-shadow: 5px 5px 0 0 $cBlack;
-      color: $cWhite;
-    }
+  &:hover {
+    background-color: $cRed;
+    transform: translate(-2.5px, -2.5px);
+    box-shadow: 5px 5px 0 0 $cBlack;
+    color: $cWhite;
   }
+}
+&.retire {
+  width: 130px;
+
+  &:hover {
+    background-color: $cRed;
+    transform: translate(-2.5px, -2.5px);
+    box-shadow: 5px 5px 0 0 $cBlack;
+    color: $cWhite;
+  }
+}
 
   &.cover-3d {
     position: relative;

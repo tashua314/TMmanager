@@ -1,17 +1,24 @@
 class MissionsController < ApplicationController
   before_action :authenticate_user!
   before_action :check_guest, only: :new
-
   
     def index
       if params[:search] == nil
         @missions = Mission.all
-      elsif params[:search] == ''
-        @missions = Mission.all
-      else
-        #部分検索
+        elsif params[:search] == ''
+          @missions = Mission.all
+        else
+          #部分検索
         @missions = Mission.where("content LIKE ? ",'%' + params[:search] + '%')
-      end
+      end 
+
+      user = current_user
+      mission = user.missions
+      mission.each do |m|
+        if  Time.now > m.deadline
+          m.create_notification_deadline!(m)
+        end
+    end
     end
 
     def new 

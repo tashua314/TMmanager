@@ -9,13 +9,14 @@ class CommentsController < ApplicationController
       @comment_mission = @comment.mission
       if @comment.save
         redirect_to controller: :missions, action: :show, id: @mission.id, notice:  'コメントしました'
-        @comment_mission.create_notification_by(current_user)
+        @comment_mission.create_notification_comment!(current_user, @comment_id)
       #   render :index
       # else
       #   flash[:aleft] = 'コメントできませんでした'
       #   redirect_back(fallback_location: root_path)
       end
     end
+  
 
     def destroy
         Comment.find(params[:id]).destroy 

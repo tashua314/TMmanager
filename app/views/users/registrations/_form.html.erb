@@ -9,6 +9,12 @@
     <%= f.text_field :username, autofocus: true,autocomplete: "username", class: 'form-control', size: 15, required: true %>
   </div>
 
+<div class="field">
+    <%= f.label :プロフィール画像 %>
+<br>
+    <%= f.file_field :image %>
+</div>
+
   <div class="field">
     <%= f.label :email, "メールアドレス", class: "required" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', size: 32, required: true %>
@@ -29,7 +35,7 @@
     </div>
   
     <div class="field">
-      <%= f.label :パスワード確認, class: "required" %>
+      <%= f.label :パスワード確認, class: "required" %><br>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', size: 16 %>
     </div>
   <% unless current_page?new_user_registration_path %>

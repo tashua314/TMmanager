@@ -71,24 +71,7 @@
         
     </div>  
 
-        <% case notification.action %>
-            <% when 'expire' then %>
-            <div class="notification-index">
-                <ul>
-                    <li>
-                        期限切れ
-                    </li>
-                    <li>
-                        <%= button_to notification_path(notification.id),method: :put, class: "notification-btn" do %>
-                            <i class="far fa-check-circle"></i>
-                        <% end %>
-                    </li>
-                </ul>
-                <div class="small-text-muted text-right">
-                    <%= time_ago_in_words(notification.created_at).upcase %>前
-                </div>
-            </div>
-        <% end %>
+        
 <% end %>                
                 
                 

@@ -1,24 +1,63 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+時間管理型SNS TMmanager
 
-Things you may want to cover:
+アプリ作成の目的
+大学の授業に遅刻することが多く、怠け癖がついていました。
+そこで,todoアプリを作成し、その中に投稿機能を実装することで、
+全ユーザーに対して自分だけのtodoリストを共有するアプリを作成しました。また、
+todoを達成しなかった際には、事前に設定した罰ゲームを執行することにしました。
 
-* Ruby version
-2.6.5p114 (2019-10-01 revision 67812) [x86_64-darwin19]
-* System dependencies
 
-* Configuration
+ 機能一覧
+ユーザー機能
+・ユーザー登録・編集・削除
+・一覧表示
+・ゲストログイン
+・プロフィール情報の登録・編集
 
-* Database creation
+Mission投稿機能
+・投稿・編集・削除
+・一覧表示・詳細表示
+・いいね（いいね数のカウント）
+・検索（投稿検索）
+・コメント（投稿に対するコメント）
 
-* Database initialization
+いいね機能
+・投稿に対するいいね
 
-* How to run the test suite
+コメント機能
+・投稿
+・コメントの表示
+・削除
 
-* Services (job queues, cache servers, search engines, etc.)
+フォロー機能
+・ユーザーのフォロー・フォロー解除機能
+・フォロー中のユーザーとフォロワーの一覧表示
 
-* Deployment instructions
+DM機能
+・他のユーザーに対するDM機能
 
-* ...
+通知機能
+・投稿に対する「いいね」の通知
+・投稿に対するコメントの通知（自分のコメントを除く）
+・フォロー通知
+・DMに対する通知
+
+その他
+・テスト(Rspec)
+
+使用技術
+フロント
+・HTML
+・CSS
+・Sass
+・Javascript
+
+バックエンド
+・Ruby 2.6.5p114 (2019-10-01 revision 67812) [x86_64-darwin19]
+・Rails 6.0.3.4
+
+その他
+・Github
+・Heroku

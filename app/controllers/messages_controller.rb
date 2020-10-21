@@ -1,13 +1,11 @@
 class MessagesController < ApplicationController
 before_action :authenticate_user!, :only => [:create]
 
+
     def create
         if Entry.where(:user_id => current_user.id, :room_id => params[:message][:room_id]).present?
             @message = Message.new(message_params)
-            # ここから
             @room=@message.room
-            # ここまでを追加
-            
             if @message.save
                 @roommembernotme=Entry.where(:room_id => @room.id).where.not(:user_id => current_user.id)
                 @theid=@roommembernotme.find_by(:room_id => @room.id)
@@ -22,16 +20,12 @@ before_action :authenticate_user!, :only => [:create]
                 if notification.visiter_id == notification.visited_id 
                     notification.checked = true
                 end
-                notification.save if notification.valid?
-                # ここまでを追加
-                
-                    redirect_to "/rooms/#{@message.room_id}"
-                
+                notification.save if notification.valid?     
+                    redirect_to "/rooms/#{@message.room_id}"    
             else
                 redirect_to"/rooms/#{@message.room_id}"
                 flash[:alert] = 'コメントできませんでした'
             end
-
         else
             redirect_back(:fallback_location => missions_path)
         end

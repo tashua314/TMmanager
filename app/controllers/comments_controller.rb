@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
       @comment.user_id = current_user.id
       @comment_mission = @comment.mission
       if @comment.save
-        redirect_to controller: :missions, action: :show, id: @mission.id, notice:  'コメントしました'
+        redirect_to :controller => :missions, :action => :show, :id => @mission.id, :notice => 'コメントしました'
         @comment_mission.create_notification_comment!(current_user, @comment_id)
       #   render :index
       # else
@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
 
     def destroy
         Comment.find(params[:id]).destroy 
-        redirect_to controller: :missions, action: :show, id:params[:mission_id], notice:'コメントを削除しました'
+        redirect_to :controller => :missions, :action => :show, :id => params[:mission_id], :notice => 'コメントを削除しました'
     end
 
   private

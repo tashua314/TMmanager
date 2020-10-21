@@ -2,21 +2,21 @@ class MessagesController < ApplicationController
 before_action :authenticate_user!, :only => [:create]
 
     def create
-        if Entry.where(user_id: current_user.id, room_id: params[:message][:room_id]).present?
+        if Entry.where(:user_id => current_user.id, :room_id => params[:message][:room_id]).present?
             @message = Message.new(message_params)
             # ここから
             @room=@message.room
             # ここまでを追加
             
             if @message.save
-                @roommembernotme=Entry.where(room_id: @room.id).where.not(user_id: current_user.id)
-                @theid=@roommembernotme.find_by(room_id: @room.id)
+                @roommembernotme=Entry.where(:room_id => @room.id).where.not(:user_id => current_user.id)
+                @theid=@roommembernotme.find_by(:room_id => @room.id)
                 notification = current_user.active_notifications.new(
-                    room_id: @room.id,
-                    message_id: @message.id,
-                    visited_id: @theid.user_id,
-                    visiter_id: current_user.id,
-                    action: 'dm'
+                    :room_id => @room.id,
+                    :message_id => @message.id,
+                    :visited_id => @theid.user_id,
+                    :visiter_id => current_user.id,
+                    :action => 'dm'
                 )
                 # 自分の投稿に対するコメントの場合は、通知済みとする
                 if notification.visiter_id == notification.visited_id 
@@ -33,7 +33,7 @@ before_action :authenticate_user!, :only => [:create]
             end
 
         else
-            redirect_back(fallback_location: missions_path)
+            redirect_back(:fallback_location => missions_path)
         end
     end
 
@@ -49,7 +49,7 @@ before_action :authenticate_user!, :only => [:create]
     def destroy
         @comment = Comment.find(params[:id])
         if @comment.destroy
-        redirect_to post_path(@post), notice: 'コメントを削除しました'
+        redirect_to post_path(@post), :notice => 'コメントを削除しました'
     else
         flash.now[:alert] = 'コメント削除に失敗しました'
         render post_path(@post)
@@ -77,6 +77,6 @@ private
     end
 
     def message_params
-        params.require(:message).permit(:user_id, :body, :room_id, :visiter_id).merge(user_id: current_user.id)
+        params.require(:message).permit(:user_id, :body, :room_id, :visiter_id).merge(:user_id => current_user.id)
     end
 end

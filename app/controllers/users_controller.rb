@@ -8,8 +8,8 @@ class UsersController < ApplicationController
   def show
     @notifications = current_user.passive_notifications.page(params[:page]).per(20)
     @user=User.find(params[:id])
-    @currentUserEntry=Entry.where(user_id: current_user.id)
-    @userEntry=Entry.where(user_id: @user.id)
+    @currentUserEntry=Entry.where(:user_id => current_user.id)
+    @userEntry=Entry.where(:user_id => @user.id)
     if @user.id == current_user.id && current_user.email != 'guest@example.com'
       # @msg ="他のユーザーとDMしてみよう！"
     else
@@ -26,9 +26,9 @@ class UsersController < ApplicationController
         @entry = Entry.new
       end
     end
-    @mission = Mission.where(user_id: @user.id)
-    @notclearmission = Mission.where(completed: 0, user_id: @user.id) 
-    @clearmission = Mission.where(completed: 1, user_id: @user.id)
+    @mission = Mission.where(:user_id => @user.id)
+    @notclearmission = Mission.where(:completed => 0, :user_id => @user.id) 
+    @clearmission = Mission.where(:completed => 1, :user_id => @user.id)
     @mission.count
   end
 

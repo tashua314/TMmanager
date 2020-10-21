@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # メインのサンプルユーザーを1人作成する
-User.create!(username:  "ゲストユーザー",
-            email: 'guest@example.com',
-            password:              "foobar",
-            password_confirmation: "foobar"
+User.create!(:username => "ゲストユーザー",
+            :email => 'guest@example.com',
+            :password => "foobar",
+            :password_confirmation => "foobar"
           )
 
 def reset_id(tablename)

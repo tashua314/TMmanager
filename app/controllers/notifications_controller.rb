@@ -21,8 +21,8 @@ class NotificationsController < ApplicationController
 
     def update
       notification=Notification.find(params[:id]) 
-      if notification.update(checked: true) 
-        redirect_to action: :index
+      if notification.update(:checked => true) 
+        redirect_to :action => :index
       end
     end
 

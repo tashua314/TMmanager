@@ -31,7 +31,7 @@ class MissionsController < ApplicationController
       @mission.user_id = current_user.id
 
       if @mission.save
-          redirect_to action: "index"
+          redirect_to :action => "index"
           user = current_user
           mission = user.missions
           mission.each do |m|
@@ -40,15 +40,15 @@ class MissionsController < ApplicationController
             end
           end
         else
-          redirect_to action: "new"
+          redirect_to :action => "new"
       end
     end
     
     def show
       @mission = Mission.find(params[:id])
       @like = Like.new
-      @user = User.find_by(id: @mission.user_id)
-      @comments = Comment.where(mission_id: params[:id])
+      @user = User.find_by(:id => @mission.user_id)
+      @comments = Comment.where(:mission_id => params[:id])
       @comment = @mission.comments.build
 
     end
@@ -73,11 +73,11 @@ class MissionsController < ApplicationController
 
     def destroy
       Mission.find(params[:id]).destroy
-      redirect_to action: :index
+      redirect_to :action => :index
     end
 
     def done 
-      @mission.update(status: "Done")
+      @mission.update(:status => "Done")
       @missions = MIssion.all.includes(:user)
       render :index
     end

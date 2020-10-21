@@ -1,5 +1,5 @@
 class RelationshipsController < ApplicationController
-  before_action :check_guest, only: :create
+  # before_action :check_guest, only: :create
   def create
     @user = User.find(params[:following_id])
     following = current_user.follow!(@user)
@@ -26,11 +26,11 @@ class RelationshipsController < ApplicationController
   end
 
 
-  private
-    def check_guest
-      if current_user.email == 'guest@example.com'
-        redirect_to missions_path, alert: 'ゲストユーザーはフォローできません。'
-      end
-    end
+  # private
+  #   def check_guest
+  #     if current_user.email == 'guest@example.com'
+  #       redirect_to missions_path, alert: 'ゲストユーザーはフォローできません。'
+  #     end
+  #   end
 
 end

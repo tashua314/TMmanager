@@ -1,6 +1,6 @@
             <div class="mission-index">
               <h2>Mission一覧</h2>
-              <%= form_tag({controller:"missions",action:"index"}, method: :get) do %>
+              <%= form_tag({controller:"missions",action:"index"},method: :get) do %>
                 <%= text_field_tag :search %>
                   <%= button_tag type: "submit", class: 'search-btn fas fa-search' do %>
                   <% end %>

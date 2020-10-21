@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!    
-  before_action :set_mission, only:[:create]
+  # before_action :set_mission, only:[:create]
 
     def create
       @mission = Mission.find(params[:mission_id])
@@ -24,11 +24,11 @@ class CommentsController < ApplicationController
     end
 
   private
-  def set_mission
-    if current_user.email == 'guest@example.com'
-      redirect_to missions_path, alert: 'ゲストユーザーはコメントできません。'
-    end
-  end
+  # def set_mission
+  #   if current_user.email == 'guest@example.com'
+  #     redirect_to missions_path, alert: 'ゲストユーザーはコメントできません。'
+  #   end
+  # end
 
   def comment_params
     params.require(:comment).permit(:comment)

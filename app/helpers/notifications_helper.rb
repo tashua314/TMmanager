@@ -12,6 +12,8 @@ module NotificationsHelper
         when "comment" then
           @comment=Comment.find_by(id:notification.comment_id)&.content
           "#{visiter}が#{your_mission}にコメントしました"
+        when "expire" then 
+          "期限切れ"
       end
     end
     

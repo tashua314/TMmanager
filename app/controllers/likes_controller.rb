@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :private_user, only:[:create]
+  # before_action :private_user, only:[:create]
   before_action :set_variables
   before_action :mission_params
 
@@ -23,11 +23,11 @@ class LikesController < ApplicationController
   end
 
   private
-  def private_user
-    if current_user.email == 'guest@example.com'
-      redirect_to missions_path, alert: 'ゲストユーザーはいいねできません。'
-    end
-  end
+  # def private_user
+  #   if current_user.email == 'guest@example.com'
+  #     redirect_to missions_path, alert: 'ゲストユーザーはいいねできません。'
+  #   end
+  # end
   
   def set_variables 
     @mission = Mission.find(params[:mission_id])

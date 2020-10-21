@@ -1,6 +1,6 @@
 class MissionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_guest, only: :new
+  # before_action :check_guest, only: :new
   
     def index
       if params[:search] == nil
@@ -12,13 +12,13 @@ class MissionsController < ApplicationController
         @missions = Mission.where("content LIKE ? ",'%' + params[:search] + '%')
       end 
 
-      user = current_user
-      mission = user.missions
-      mission.each do |m|
-        if  Time.now > m.deadline
-          m.create_notification_deadline!(m)
-        end
-    end
+      # user = current_user
+      # mission = user.missions
+      # mission.each do |m|
+      #   if  Time.now > m.deadline
+      #     m.create_notification_deadline!(m)
+      #   end
+      # end
     end
 
     def new 
@@ -32,6 +32,13 @@ class MissionsController < ApplicationController
 
       if @mission.save
           redirect_to action: "index"
+          user = current_user
+          mission = user.missions
+          mission.each do |m|
+            if  Time.now > m.deadline
+              m.create_notification_deadline!(m)
+            end
+          end
         else
           redirect_to action: "new"
       end
@@ -75,17 +82,15 @@ class MissionsController < ApplicationController
       render :index
     end
 
-    def check_guest
-      if  current_user.email == 'guest@example.com'
-          redirect_to missions_path, alert: 'ゲストユーザーは投稿できません。'
-        # else
-        #   redirect_to  new_mission_path
-      end
-    end
+    # def check_guest
+    #   if  current_user.email == 'guest@example.com'
+    #       redirect_to missions_path, alert: 'ゲストユーザーは投稿できません。'
+    #   end
+    # end
     
     private
     def mission_params
-      params.require(:mission).permit(:content, :penalty, :image, :deadline, :completed)
+      params.require(:mission).permit(:content, :penalty, :image, :deadline, :completed, :user_id)
     end
 
 

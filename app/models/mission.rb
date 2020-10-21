@@ -25,13 +25,13 @@ class Mission < ApplicationRecord
   def create_notification_deadline!(mission)
     # Missionが期限切れになると通知する
     temp = Notification.where(["visiter_id = ?  and mission_id = ? and action = ? ", user_id, id, 'expire'])
-    if mission.notifications.nil? && Time.now > mission.deadline
-      notification = current_user.active_notifications.new(
+    # if Time.now > mission.deadline
+      notification = user.active_notifications.new(
         mission_id: id,
         visiter_id: user_id,
         action: 'expire'
       )
-    end
+    # end
   end
 
   def create_notification_like!(current_user)

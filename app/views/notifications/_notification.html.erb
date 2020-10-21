@@ -1,85 +1,95 @@
 <% visiter = notification.visiter %>
 <% visited = notification.visited %>
-    <% if notification.checked == false %>
-        <div class = "notification-index">
-                    <%= link_to user_path(visiter), class:"link_tag" do %>
-                        <% if visiter.image? %>                                                              
-                            <%= image_tag visiter.image_url, class:"image" if visiter.image? %>
-                            <% else %>
-                            <%= gravatar_for visiter %>
+<% if notification.checked == false %>
+    <div class = "notification-index">
+        <%= link_to user_path(visiter), class:"link_tag" do %>
+            <% if visiter.image? %>                                                              
+                <%= image_tag visiter.image_url, class:"image" if visiter.image? %>
+            <% else %>
+                <%= gravatar_for visiter %>
+            <% end %>
+            <%= visiter.username %>さんが
+        <% end %>
+        <% case notification.action %>
+            <% when 'dm' then %>
+                <ul> 
+                    <li>
+                        あなたにDMを送りました
+                    </li>
+                    <li>
+                        <%= button_to notification_path(notification.id),method: :put, class: "notification-btn" do %>
+                            <i class="far fa-check-circle"></i>
                         <% end %>
-                        <%= visiter.username %>さんが
-                    <% end %>
-
-            <% case notification.action %>
-                        <% when 'dm' then %>
-                        <ul> 
-                            <li>
-                                あなたにDMを送りました
-
-                            </li>
-                            <li>
-                                <%= button_to notification_path(notification.id),method: :put, class: "notification-btn" do %>
-                                    <i class="far fa-check-circle"></i>
-                            </li>
-                        </ul>
-                            <% end %>
-                            <div class="small-text-muted text-right">
-                            <%= time_ago_in_words(notification.created_at).upcase %>前
-                            </div>
-
-                        <% when 'like' then %>
-                            <ul>
-                                <li>
-                                    あなたのMissionにいいねしました
-                                </li>
-                                <li>
-                                    <%= button_to notification_path(notification.id),method: :put, class: "notification-btn" do %>
-                                        <i class="far fa-check-circle"></i>
-                                </li>
-                            </ul>
-                                    <% end %>
-                                    <div class="small-text-muted text-right">
-                                    <%= time_ago_in_words(notification.created_at).upcase %>前
-                                    </div>
-
-                        <% when 'comment' then %>
-                        <ul>
-                            <li>
-                                あなたのMissionにコメントしました
-                            </li>
-                            <li>
-                                <%= button_to notification_path(notification.id),method: :put, class: "notification-btn" do %>
-                                    <i class="far fa-check-circle"></i>
-                            </li>
-                        </ul>
-                            <div class="small-text-muted text-right">
-                            <%= time_ago_in_words(notification.created_at).upcase %>前
-                            </div>
+                    </li>
+                </ul>
+                <div class="small-text-muted text-right">
+                    <%= time_ago_in_words(notification.created_at).upcase %>前
+                </div>
+            <% when 'like' then %>
+                <ul>
+                    <li>
+                        あなたのMissionにいいねしました
+                    </li>
+                    <li>
+                        <%= button_to notification_path(notification.id),method: :put, class: "notification-btn" do %>
+                            <i class="far fa-check-circle"></i>
                         <% end %>
-
-                        <% when 'follow' then %>
-                        <ul>
-                            <li>
-                                あなたをフォローしました
-                            </li>
-                            <li>
-                                <%= button_to notification_path(notification.id),method: :put, class: "notification-btn" do %>
-                                    <i class="far fa-check-circle"></i>
-                            </li>
-                        </ul>
-                                <% end %>
-                                <div class="small-text-muted text-right">
-                                <%= time_ago_in_words(notification.created_at).upcase %>前
-                                </div>
+                    </li>
+                </ul>
+                <div class="small-text-muted text-right">
+                    <%= time_ago_in_words(notification.created_at).upcase %>前
+                </div>
+            <% when 'comment' then %>
+                <ul>
+                    <li>
+                        あなたのMissionにコメントしました
+                    </li>
+                    <li>
+                        <%= button_to notification_path(notification.id),method: :put, class: "notification-btn" do %>
+                            <i class="far fa-check-circle"></i>
                         <% end %>
+                    </li>
+                </ul>
+                <div class="small-text-muted text-right">
+                    <%= time_ago_in_words(notification.created_at).upcase %>前
+                </div>
+            <% when 'follow' then %>
+                <ul>
+                    <li>
+                        あなたをフォローしました
+                    </li>
+                    <li>
+                        <%= button_to notification_path(notification.id),method: :put, class: "notification-btn" do %>
+                            <i class="far fa-check-circle"></i>
+                        <% end %>
+                    </li>
+                </ul>
+                <div class="small-text-muted text-right">
+                    <%= time_ago_in_words(notification.created_at).upcase %>前
+                </div>
+        <% end %>
+        
+    </div>  
 
-                
-            
-
-        </div>  
-
-    <% end %>                
+        <% case notification.action %>
+            <% when 'expire' then %>
+            <div class="notification-index">
+                <ul>
+                    <li>
+                        期限切れ
+                    </li>
+                    <li>
+                        <%= button_to notification_path(notification.id),method: :put, class: "notification-btn" do %>
+                            <i class="far fa-check-circle"></i>
+                        <% end %>
+                    </li>
+                </ul>
+                <div class="small-text-muted text-right">
+                    <%= time_ago_in_words(notification.created_at).upcase %>前
+                </div>
+            </div>
+        <% end %>
+<% end %>                
                 
                 
                     

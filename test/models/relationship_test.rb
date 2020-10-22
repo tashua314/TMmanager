@@ -5,10 +5,10 @@ class RelationshipTest < ActiveSupport::TestCase
   #   assert true
   # end
 
-  def setup
-    @relationship = Relationship.new(:follower_id => users(:follower).id,
-                                    :following_id => users(:following).id)
-  end
+  # def setup
+  #   @relationship = Relationship.new(:follower_id => user(:follower).id,
+  #                                   :following_id => user(:following).id)
+  # end
 
   # test "should be valid" do
   #   assert @relationship.valid?
@@ -19,7 +19,7 @@ class RelationshipTest < ActiveSupport::TestCase
   #   assert_not @relationship.valid?
   # end
 
-  # test "should require a following_id" do
+  # test "should require a followed_id" do
   #   @relationship.following_id = nil
   #   assert_not @relationship.valid?
   # end

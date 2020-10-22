@@ -5,6 +5,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
+
 module TMmaneger
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -18,5 +20,15 @@ module TMmaneger
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
 
     config.i18n.default_locale = :ja
+
+    config.generators do |g|
+
+      # Railsジェネレータがfactory_bot用のファイルを生成するのを無効化
+      g.factory_bot false
+    
+      # ファクトリファイルの置き場を変更
+      g.factory_bot dir: 'custom/dir/for/factories'
+    end
+
   end
 end

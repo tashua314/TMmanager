@@ -12,20 +12,22 @@ class Mission < ApplicationRecord
 
   def create_notification_deadline!(mission)
     # Missionが期限切れになると通知する
-    temp = Notification.where(["mission_id = ? and action = ? ", id, 'expire'])
+    temp = Notification.where(["visited_id = ? and mission_id = ? and action = ?",user_id, id, 'expire'])
     # if Time.now > mission.deadline
-    if temp.blank?
+    # if temp.blank?
       notification = Notification.new(
+        # :visiter_id => user_id,
+        :visited_id => user_id,
         :mission_id => id,
         :action => 'expire'
       )
       notification.save if notification.valid?
-    end
+    # end
   end
 
   def create_notification_like!(current_user)
     # すでに「いいね」されているか検索
-    temp = Notification.where(["visiter_id = ? and mission_id = ? and action = ? ", current_user.id, user_id, id, 'like'])
+    temp = Notification.where(["visiter_id = ? and visited_id = ? and mission_id = ? and action = ? ", current_user.id, user_id, id, 'like'])
     # いいねされていない場合のみ、通知レコードを作成
     if temp.blank?
       notification = current_user.active_notifications.new(

@@ -8,7 +8,9 @@
             <% else %>
                 <%= gravatar_for visiter %>
             <% end %>
+            <% unless visiter_id = current_user.id %>
             <%= visiter.username %>さんが
+            <% end %>
         <% end %>
         <% case notification.action %>
             <% when 'dm' then %>
@@ -68,22 +70,20 @@
                     <%= time_ago_in_words(notification.created_at).upcase %>前
                 </div>
             <% when 'expire' then %>
-                    <ul>
-                        <li>
-                            期限切れ
-                        </li>
-                        <li>
-                            <%= button_to notification_path(notification.id),method: :put, class: "notification-btn" do %>
-                                <i class="far fa-check-circle"></i>
-                            <% end %>
-                        </li>
-                    </ul>
-                    <div class="small-text-muted text-right">
-                        <%= time_ago_in_words(notification.created_at).upcase %>前
-                    </div>
+                <ul>
+                    <li>
+                        Missionに失敗しました
+                    </li>
+                    <li>
+                        <%= button_to notification_path(notification.id),method: :put, class: "notification-btn" do %>
+                            <i class="far fa-check-circle"></i>
+                        <% end %>
+                    </li>
+                </ul>
+                <div class="small-text-muted text-right">
+                    <%= time_ago_in_words(notification.created_at).upcase %>前
+                </div>
         <% end %>    
     </div> 
 <% end %>                
                 
-                
-                    

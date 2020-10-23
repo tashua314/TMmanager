@@ -11,14 +11,13 @@ class MissionsController < ApplicationController
           #部分検索
         @missions = Mission.where("content LIKE ? ",'%' + params[:search] + '%')
       end 
-
-      # user = current_user
-      # mission = user.missions
-      # mission.each do |m|
-      #   if  Time.now > m.deadline
-      #     m.create_notification_deadline!(m)
-      #   end
-      # end
+          user = current_user
+          mission = user.missions
+          mission.each do |m|
+            if  Time.now > m.deadline
+              m.create_notification_deadline!(m)
+            end
+          end
     end
 
     def new 
@@ -32,13 +31,6 @@ class MissionsController < ApplicationController
 
       if @mission.save
           redirect_to :action => "index"
-          user = current_user
-          mission = user.missions
-          mission.each do |m|
-            if  Time.now > m.deadline
-              m.create_notification_deadline!(m)
-            end
-          end
         else
           redirect_to :action => "new"
       end

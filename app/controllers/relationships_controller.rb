@@ -24,8 +24,7 @@ class RelationshipsController < ApplicationController
       redirect_to @user
     end
   end
-
-
+  
   # private
   #   def check_guest
   #     if current_user.email == 'guest@example.com'

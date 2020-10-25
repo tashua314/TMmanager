@@ -16,7 +16,7 @@ class Mission < ApplicationRecord
     # if Time.now > mission.deadline
     # if temp.blank?
       notification = Notification.new(
-        # :visiter_id => user_id,
+        :visiter_id => user_id,
         :visited_id => user_id,
         :mission_id => id,
         :action => 'expire'

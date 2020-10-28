@@ -69,9 +69,10 @@ class MissionsController < ApplicationController
     end
 
     def done 
-      @mission.update(:status => "Done")
-      @missions = MIssion.all.includes(:user)
-      render :index
+      @mission = Mission.find(params[:id])
+      if @mission.completed == 0
+        @mission.update(completed:1)
+      end
     end
 
     # def check_guest

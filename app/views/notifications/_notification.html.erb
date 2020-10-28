@@ -3,12 +3,11 @@
 <% if notification.checked == false %>
     <div class = "notification-index">
         <%= link_to user_path(visiter), class:"link_tag" do %>
-            <% if visiter.image? %>                                                              
+            <% if visiter.image? %>  
                 <%= image_tag visiter.image_url, class:"image" if visiter.image? %>
+            <%= visiter.username %>さんが                                                            
             <% else %>
                 <%= gravatar_for visiter %>
-            <% end %>
-            <% unless visiter_id = current_user.id %>
             <%= visiter.username %>さんが
             <% end %>
         <% end %>

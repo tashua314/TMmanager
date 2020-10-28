@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get  'static_pages/help'
   get 'hello/index' => 'hello#index'
   get 'hello/link' => 'hello#link'
+  post '/missions/:id/done' => 'missions#done',   as: 'done'
   
 
   resources :users do

@@ -72,6 +72,7 @@ class MissionsController < ApplicationController
       @mission = Mission.find(params[:id])
       if @mission.completed == 0
         @mission.update(completed:1)
+        redirect_to :action => :index
       end
     end
 

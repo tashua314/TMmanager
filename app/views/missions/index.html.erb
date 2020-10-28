@@ -39,12 +39,14 @@
                                   
                                         <%= link_to "編集する", edit_mission_path(t.id), class: "link_tag fa fa-edit" %>
                                   </li>
+                                  <li>
+                                    <%= button_to  done_path(t), method: :post, data: { confirm: '本当にMissionクリアでいいですか？' }, class:"link_tag fas fa-check" do %>
+                                    Missionクリア
+                                    <% end %>
+                                  </li>
                                   <li class="destroy-btn">
                                     <%= button_to  mission_path(t.id), method: :delete, data: { confirm: '本当に諦めてもいいですか？' }, class: "trash-btn fa fa-trash" do %>削除する
                                     <% end %>
-                                  </li>
-                                  <li>
-                                    <%= button_to 'Missionクリア', done_path(t), method: :post, data: { confirm: '本当にMissionクリアでいいですか？' },class:"link_tag" %>
                                   </li>
                                 <% end %>
                               <% end %>

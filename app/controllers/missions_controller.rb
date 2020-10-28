@@ -14,7 +14,7 @@ class MissionsController < ApplicationController
           user = current_user
           mission = user.missions
           mission.each do |m|
-            if  Time.now > m.deadline
+            if  Time.now > m.deadline && m.completed == 0
               m.create_notification_deadline!(m)
             end
           end

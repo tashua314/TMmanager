@@ -7,8 +7,8 @@ ruby '2.6.5'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'bcrypt',         '3.1.13'
 gem 'faker',                   '2.1.2'
-# Use sqlite3 as the database for Active Record
-# gem 'sqlite3', '~> 1.4'
+# Use pg as the database for Active Record
+# gem 'pg', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -32,7 +32,7 @@ gem 'bootsnap', '>= 1.4.2', :require => false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'sqlite3' 
+  gem 'pg' 
   gem "rspec-rails"
   gem 'rails-controller-testing'
   gem 'spring-commands-rspec'
@@ -72,6 +72,6 @@ gem 'font-awesome-sass'
 gem 'unsplash'
 gem 'rubocop', :require => false
 
-group :production do
-  gem 'pg'
-end
+gem 'pg'
+# group :production do
+# end

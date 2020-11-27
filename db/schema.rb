@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2020_10_09_111927) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.string "comment"
-    t.integer "user_id", null: false
-    t.integer "mission_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "mission_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["mission_id"], name: "index_comments_on_mission_id"
@@ -23,8 +26,8 @@ ActiveRecord::Schema.define(version: 2020_10_09_111927) do
   end
 
   create_table "entries", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "room_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["room_id"], name: "index_entries_on_room_id"
@@ -32,8 +35,8 @@ ActiveRecord::Schema.define(version: 2020_10_09_111927) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "mission_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "mission_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["mission_id"], name: "index_likes_on_mission_id"
@@ -41,8 +44,8 @@ ActiveRecord::Schema.define(version: 2020_10_09_111927) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "room_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

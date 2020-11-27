@@ -26,9 +26,9 @@ test:
 
 production:
    <<: *default
-   database: test_db
+   database: tmmanager
    username: yumaasato
-   password: request.env['DB_PASSWORD']
+   password: request.env['DB_PASSWORD'] # 任意のパスワード
    adapter: postgresql
    encoding: unicode
    pool:  <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>

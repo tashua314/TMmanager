@@ -7,11 +7,11 @@ services:
       - '5432:5432' # ホストからゲストへポートフォワード
     volumes:
       - postgresql-data:/var/lib/postgresql/data
-    environment: 
+    environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: test_db
-      
+
   web:
     build:
       context: .
@@ -25,6 +25,10 @@ services:
       - "3000:3000" # ホストからゲストへポートフォワード
     volumes:
       - .:/myproject # ソースコード変更したらDocker側も即反映されるように
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
 volumes:
   postgresql-data:
     driver: local

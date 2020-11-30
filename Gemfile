@@ -32,7 +32,7 @@ gem 'bootsnap', '>= 1.4.2', :require => false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'pg' 
+  gem 'pg'
   gem "rspec-rails"
   gem 'rails-controller-testing'
   gem 'spring-commands-rspec'
@@ -64,6 +64,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'sprockets', '~> 3.7.2'
 gem 'kaminari'
+gem 'nokogiri'
 
 gem 'carrierwave'
 gem 'cloudinary'

@@ -9,6 +9,6 @@ ADD Gemfile /myproject/Gemfile
 ADD Gemfile.lock /myproject/Gemfile.lock
 
 RUN gem install bundler
-RUN bundle install
+RUN bundle install --no-cache --without development test
 
 ADD . /myproject

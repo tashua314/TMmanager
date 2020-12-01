@@ -8,7 +8,8 @@ WORKDIR /myproject
 ADD Gemfile /myproject/Gemfile
 ADD Gemfile.lock /myproject/Gemfile.lock
 
+RUN ls
 RUN gem install bundler
-RUN bundle install --no-cache --without development test
+RUN bundle install
 
 ADD . /myproject

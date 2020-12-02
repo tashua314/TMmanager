@@ -6,9 +6,8 @@ RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 WORKDIR /myproject
 
 ADD Gemfile /myproject/Gemfile
-ADD Gemfile.lock /myproject/Gemfile.lock
+# ADD Gemfile.lock /myproject/Gemfile.lock
 
-RUN ls
 RUN gem install bundler
 RUN bundle install
 

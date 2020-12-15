@@ -1,6 +1,6 @@
+@import 'breakpoints/base';
 $contentMaxWidth: 1070px;
 $navHeight: 100px;
-
 
 // マージン
 $narrow: 2px;
@@ -18,7 +18,7 @@ $huge: 20px;
 // 行の高さ
 $standard_line_height:16px;
 
-
+//font-size
 .font-sm {
   font-size: 14px;
 }

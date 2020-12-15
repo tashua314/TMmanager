@@ -19,27 +19,31 @@
 @import "modules/dimensions";
 @import "modules/image";
 
+//assets
 @import "users";
 @import "button";
 @import "missions";
 @import "loader";
 
-
+//font-awesome
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+//swiper
 @import 'swiper/swiper-bundle';
 
-
+//google fonts
 @import url('https://fonts.googleapis.com/css2?family=Kameron:wght@400;700&family=Noto+Sans+JP&display=swap');
 
 //breakpoints
 @import 'breakpoints/base';
 
-@media (min-width: 520px) {
+//520px以下
+@media (max-width: 520px) {
   @import  'breakpoints/mobile';
 }
 
-@media (min-width: 600px) {
+@media (max-width: 959px) {
   @import  'breakpoints/tablet';
 }
 

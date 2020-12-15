@@ -1,22 +1,26 @@
+@import 'breakpoints/base';
+//白
 $cWhite: white;
-$cBlack: black;
+//黒
 $cMenuClose: $cBlack;
+$cBlack: black;
 $cMenuOpen: $cBlack;
-$cAqua:aqua;
-$cTeal: teal;
-$cSubTitle:#535353;
-$cSliver:#C0C0C0;
+
 
 // 青系
+$cTeal: teal;
 $cBlue:#007bff;
+$cAqua:aqua;
 $light_blue:#1da1f3;
 $clight_blue:aliceblue;
 $dark_navy:rgb(0,0,60);
+
 // グレー系
 $dark_gray:#666666;
 $cBgGray:#eaebe6;
 $light_gray: #eeeeee;
 $very_light_gray: #fafafa;
+$cSubTitle:#535353;
 
 // シアン系
 $dark_cyan: #448888;
@@ -26,3 +30,6 @@ $very_dark_cyan:darken($dark_cyan, 25%);
 $cRed:red;
 $cWineRed: #904669;
 $dark_magenta: #E85298;
+
+//その他
+$cSliver:#C0C0C0;

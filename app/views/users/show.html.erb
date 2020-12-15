@@ -1,5 +1,5 @@
       <div class="detail">
-            <% if @user.image? %>                                                              
+            <% if @user.image? %>
                 <%= image_tag @user.image_url, class:"image" if @user.image? %>
               <% else %>
                 <%= gravatar_for @user %>
@@ -41,7 +41,6 @@
 
       <div class="user-mission">
               <ul>
-                    
                   <li>
                       <h4>
                         Mission総数 <%= @mission.count %>
@@ -51,7 +50,7 @@
                       <h4>完了タスク数
                         <span class="completeCount"><%= @clearmission.count %></span> 個
                       </h4>
-                          <div class="taskDeleteBtn js-none" id="js-taskDeleteBtn"> 
+                          <div class="taskDeleteBtn js-none" id="js-taskDeleteBtn">
                           </div>
                   </li>
                   <li>
@@ -65,32 +64,32 @@
                       <h4>Mission完遂率
                         <span class="completionRate"><%= @clearmission.count*100/@mission.count %></span> %</h4>
                     <% else %>
-                
+
                     <% end %>
                   </li>
               </ul>
-            </table>  
-              <h3> Mission一覧</h3>
+            </table>
                 <% @user.missions.each do |t|  %>
-                  <div class="mission">
-                      <br>
-                      Mission <%= t.content %>
-                      <br>
-                      <% if Time.now >= t.deadline  %>
-                        <h4 id="penalty-content">罰ゲーム <%= t.penalty %></h4>
-                      <% else %>
-                        罰ゲーム <%= t.penalty %>
-                      <% end %>
-                      達成可否
-                      <% if t.completed == 0 %>
-                        未達成
-                      <% else %>
-                        クリア
-                      <% end %>
-                      <%= link_to "詳細へ", mission_path(t.id), class:"link_tag fas fa-info-circle" %>
-                      <br>
-                  </div>
+                  <h3> Mission一覧</h3>
+                    <div class="mission">
+                        <br>
+                        Mission <%= t.content %>
+                        <br>
+                        <% if Time.now >= t.deadline  %>
+                          <h4 id="penalty-content">罰ゲーム <%= t.penalty %></h4>
+                        <% else %>
+                          罰ゲーム <%= t.penalty %>
+                        <% end %>
+                        達成可否
+                        <% if t.completed == 0 %>
+                          未達成
+                        <% else %>
+                          クリア
+                        <% end %>
+                        <%= link_to "詳細へ", mission_path(t.id), class:"link_tag fas fa-info-circle" %>
+                        <br>
+                    </div>
                 <% end %>
-                  <br>  
+                  <br>
           </section>
       </div>

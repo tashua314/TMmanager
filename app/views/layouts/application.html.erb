@@ -4,6 +4,7 @@
       <title>TMmanager</title>
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
       <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
@@ -33,13 +34,13 @@
                 <%= render 'layouts/footer' %>
               </footer>
             <% end %>
-        
-            
+
+
           </div>
                   <nav class ="header-menu">
                     <%= render 'layouts/header-menu' %>
                   </nav>
-              
+
       </div>
   </body>
 
@@ -67,11 +68,10 @@
               this.DOM.btn.addEventListener(this.eventType, this._toggle.bind(this));
               this.DOM.cover.addEventListener(this.eventType, this._toggle.bind(this));
           }
-    } 
+    }
       new HeaderMenu();
   }
 
   </script>
 
 </html>
-    

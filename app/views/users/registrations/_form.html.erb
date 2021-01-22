@@ -1,6 +1,6 @@
 <div class="notes">
   <% unless current_page?edit_user_registration_path %>
-    <h2><span class="mark">*</span>印の入った項目は入力必須です。</h2>
+    <h2><span class="mark">*</span>は必須項目です。</h2>
   <% end %>
 </div>
 
@@ -21,7 +21,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :プロフィール %>(200文字以内)<br />
+    <%= f.label :プロフィール %>200文字以内<br />
     <%= f.text_area :profile, autofocus: true, size: "20x10", autocomplete: "profile", "onKeyUp" => "countLength(value, 'textlength');" ,class: 'form-control required' %>
       <p id="textlength">0</p>
   </div>
@@ -33,7 +33,7 @@
       <% end %><br />
       <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', size: 16%>
     </div>
-  
+
     <div class="field">
       <%= f.label :パスワード確認, class: "required" %><br>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', size: 16 %>
@@ -46,7 +46,7 @@
   <% end %>
 
 <script>
-      function countLength( text, field ) {
+      const countLength = ( text, field ) => {
         document.getElementById(field).innerHTML = text.length;
       }
 </script>

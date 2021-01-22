@@ -119,4 +119,17 @@
   h4 {
     letter-spacing: 0.1em;
   }
+
+  //プロフィール情報
+  .user-detail {
+    width: 60%;
+    border: 1px solid darkgray;
+    background-color: $cBgGray;
+    display: block;
+    text-align: center;
+    margin: 1em auto;
+    padding: 1.5em 1em;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 1);
+    letter-spacing: 0.1em;
+  }
 }

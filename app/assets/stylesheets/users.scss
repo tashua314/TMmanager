@@ -39,19 +39,19 @@
     }
   p {
   display: inline-block;
-  position: relative; 
+  position: relative;
   margin: 0 0 0 10px;
   padding: 10px;
   max-width: 250px;
   border-radius: 12px;
   background-color: #edf1ee;
   color: $cBlack;
-  
+
     &::after {
       content: "";
       display: inline-block;
       position: absolute;
-      top: 3px; 
+      top: 3px;
       left: -19px;
       border: 8px solid transparent;
       border-right: 18px solid #edf1ee;
@@ -73,7 +73,7 @@
   border-color: $dark_gray;
   width: 300px;
   height: 40px;
-  
+
   &:focus {
     box-shadow: 0 0 5px 0 $light_blue;
     border: 2px solid #FFF !important;
@@ -139,17 +139,6 @@
   }
 }
 
-.user-detail {
-  width: 50%;
-  border:1px solid darkgray;
-  background-color:$cBgGray;
-  display: block;
-  text-align: center;
-  margin: 1em auto;
-  padding: 1.5em 1em;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 1.0);
-  letter-spacing: 0.1em;
-}
 
 .mycomment {
   float: right;
@@ -176,7 +165,7 @@
   }
   p {
     display: inline-block;
-    position: relative; 
+    position: relative;
     margin: 0 10px 0 0;
     padding: 8px;
     max-width: 250px;
@@ -187,7 +176,7 @@
     &::after {
       content: "";
       position: absolute;
-      top: 3px; 
+      top: 3px;
       right: -19px;
       border: 8px solid transparent;
       border-left: 18px solid #30e852;
@@ -224,7 +213,7 @@
 }
 
 .user-index {
-  
+
   h2 {
     text-align: center;
   }

@@ -16,7 +16,6 @@
 
 .flex {
   display: flex;
-  // flex-direction: column;
 }
 
 i {
@@ -52,7 +51,6 @@ body {
 #container {
   position: relative;
   background-color: $cWhite;
-  // height: 100vh;
   z-index: 2;
   transition: all 0.5s;
   text-align: center;
@@ -61,7 +59,6 @@ body {
 .mission-container {
   position: relative;
   background-color: $cWhite;
-  // height: 100vh;
   z-index: 2;
   transition: all 0.5s;
 }
@@ -265,41 +262,6 @@ main {
   }
 }
 
-.footer {
-  width: 100%;
-  background: aliceblue;
-  margin-top: 150px;
-  bottom: 0;
-  position: fixed;
-  z-index: 2;
-
-
-  &__nav {
-    @extend .flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-  }
-
-  &__ul {
-    @extend .flex;
-    padding: 0;
-    margin: 0;
-  }
-
-  &__li {
-    padding: 0;
-    margin: 10px;
-    float: left;
-  }
-
-  &__item {
-    font-size: 38px;
-    justify-content: center;
-  }
-}
-
-
 .logo {
   font-size: 42px;
   display: block;
@@ -333,13 +295,13 @@ main {
   }
 }
 
-// users
+// users(新規登録フォーム）
 .generic-form {
   padding: 1.5em 1em;
   margin: 2em auto;
   background-color: #eaebe6;
   box-shadow: 0 3px 15px rgba(0, 0, 0, 1.0);
-  width: 50%;
+  width: 90%;
   text-align: center;
   letter-spacing: 0.1em;
 

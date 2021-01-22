@@ -1,0 +1,76 @@
+@media (max-width: 520px) {
+
+   //新規登録フォーム
+  .generic-form {
+    padding: 1.5em 1em;
+    margin: 2em auto;
+    background-color: #eaebe6;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 1.0);
+    width: 60%;
+    text-align: center;
+    letter-spacing: 0.1em;
+
+    form {
+      div {
+        padding: $wide;
+        label {
+          display: block;
+          padding: $moderate 0;
+        }
+        label.required:after {
+          content: "*";
+          padding-left: $narrow;
+          color: $cRed;
+        }
+      }
+      div.notes {
+        text-align: right;
+        font-size: $small;
+        span.mark { color: $cRed; }
+      }
+      div.actions {
+        text-align: center;
+        input[type="submit"] {
+          padding: $wide $wide * 2;
+        }
+      }
+    }
+  }
+
+
+
+  //footer
+  .footer {
+    width: 100%;
+    background: aliceblue;
+    margin-top: 150px;
+    bottom: 0;
+    position: absolute;
+    z-index: 2;
+
+
+    &__nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+    }
+
+    &__ul {
+      display: flex;
+      padding: 0;
+      margin: 0;
+    }
+
+    &__li {
+      padding: 0;
+      margin: 10px;
+      float: left;
+    }
+
+    &__item {
+      font-size: 20px;
+      justify-content: center;
+    }
+  }
+}

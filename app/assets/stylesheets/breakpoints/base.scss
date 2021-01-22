@@ -262,19 +262,6 @@ main {
   }
 }
 
-.logo {
-  font-size: 42px;
-  display: block;
-  text-align: left;
-  margin: 0 auto;
-
-  &__img {
-    width: 0.7em;
-  }
-  &__manager {
-    color: #d40c26;
-  }
-}
 
 .footer__item  {
   font-weight: 600;
@@ -397,7 +384,6 @@ main {
       }
       .link_tag {
         margin-top: 10px;
-
         color: rgba(255, 255, 255, 1.0);
 
         &:hover {
@@ -471,7 +457,7 @@ main {
 }
 
 .red {
-  color: #d40c26;;
+  color: #d40c26;
 }
 
 
@@ -520,7 +506,6 @@ main {
 .top {
   @extend .content-width;
   @extend .mb-lg;
-  // margin-top: 100px;
 
   &__inner {
     @extend .flex;
@@ -545,7 +530,6 @@ main {
         &::before {
           transform: translateY(-50%);
         }
-
       }
   }
 
@@ -623,11 +607,6 @@ main {
   }
 
 
-}
-
-
-h4 {
-  letter-spacing: 0.2em;
 }
 
 .gravatar {

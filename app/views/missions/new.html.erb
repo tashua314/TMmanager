@@ -24,14 +24,12 @@
                   <p id="RealtimeCountdownArea" ></p>
               </div>
             </li>
-          
+
             <li class="mission-form__li">
               <h3>Penalty (30文字以内)</h3>
                 <%= f.text_field :penalty , :size => 30, class:"mission-penalty"  %>
             </li>
           </ul>
-                  <h4>下記のMission開始ボタンを押すとその時点で開始されます。</h4>
-                  <h4>クリアのために最大限の努力をする用意はできましたか？</h4>
               <div id ="create-btn">
                   <%= f.hidden_field :completed, :value => 0, id: 'task_completed' %>
                   <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -43,7 +41,7 @@
       </div>
 
 <script>
-    
+
 
   function set2fig(num) {
      // 数値が1桁だったら2桁の文字列にして返す

@@ -6,10 +6,10 @@
             <% if user_signed_in? %>
               <nav class="footer__nav">
                   <ul class="footer__ul">
-
                     <% unless current_page?user_path(current_user) %>
                         <li class="footer_li item">
-                          <%= link_to "マイページへ", user_path(current_user) ,class: "link_tag fas fa-house-user" %></li>
+                          <%= link_to "マイページへ", user_path(current_user) ,class: "link_tag fas fa-house-user" %>
+                        </li>
                     <% end %>
 
                     <% unless current_page?users_path %>
@@ -36,7 +36,6 @@
                 <div class="footer__copyright item">
                   &copy; ASAPIN Corporation 2020
                 <div>
-                
+
               </nav>
             <% end %>
-        

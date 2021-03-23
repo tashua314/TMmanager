@@ -1,0 +1,135 @@
+@media (min-width: 521px) and (max-width: 960px) {
+  .flex {
+    display: flex;
+  }
+
+  //新規登録フォーム
+  .generic-form {
+    padding: 1.5em 1em;
+    margin: 2em auto;
+    background-color: #eaebe6;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 1);
+    width: 80%;
+    text-align: center;
+    letter-spacing: 0.1em;
+
+    form {
+      div {
+        padding: $wide;
+        label {
+          display: block;
+          padding: $moderate 0;
+        }
+        label.required:after {
+          content: "*";
+          padding-left: $narrow;
+          color: $cRed;
+        }
+      }
+      div.notes {
+        text-align: right;
+        font-size: $small;
+        span.mark {
+          color: $cRed;
+        }
+      }
+      div.actions {
+        text-align: center;
+        input[type="submit"] {
+          padding: $wide $wide * 2;
+        }
+      }
+    }
+  }
+
+  //TMmanagerのロゴ
+  .logo {
+    font-size: 42px;
+    display: block;
+    text-align: left;
+    margin: 0 auto;
+
+    &__img {
+      width: 0.7em;
+    }
+    &__manager {
+      color: #d40c26;
+    }
+  }
+  //footer
+  .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 68px;
+    background: aliceblue;
+    margin-top: 150px;
+    z-index: 2;
+
+    &__nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+    }
+
+    &__ul {
+      display: flex;
+      padding: 0;
+      margin: 0;
+    }
+
+    &__li {
+      padding: 0;
+      margin: 10px;
+      float: left;
+    }
+
+    &__item {
+      font-size: 38px;
+      justify-content: center;
+    }
+  }
+
+  //Mission投稿フォーム
+  .mission-form {
+    &__li {
+      margin-bottom: 20px;
+    }
+
+    .mission-penalty {
+      width: 210px;
+      height: 31px;
+      margin-top: 10px;
+      text-align: center;
+      font-weight: 600;
+    }
+    h3 {
+      letter-spacing: 0.1em;
+    }
+    .mission-deadline {
+      width: 80px;
+      height: 20px;
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+
+  h4 {
+    letter-spacing: 0.1em;
+  }
+
+  //プロフィール情報
+  .user-detail {
+    width: 60%;
+    border: 1px solid darkgray;
+    background-color: $cBgGray;
+    display: block;
+    text-align: center;
+    margin: 1em auto;
+    padding: 1.5em 1em;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 1);
+    letter-spacing: 0.1em;
+  }
+}

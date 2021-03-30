@@ -63,7 +63,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'sprockets', '~> 3.7.2'
 gem 'kaminari'
-# gem 'nokogiri'
+gem 'nokogiri'
 
 gem 'carrierwave'
 gem 'cloudinary'

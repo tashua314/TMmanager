@@ -359,6 +359,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   listen (~> 3.2)
+  nokogiri
   pg
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.6)
